@@ -1,0 +1,27 @@
+<template>
+  <div class='row justify-center q-pa-lg'>
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-10 col-xs-12 q-pa-sm">
+      <top-w></top-w>
+      <total-w></total-w>
+      <total-i></total-i>
+    </div>
+  </div>
+</template>
+
+<script>
+import { defineComponent } from 'vue'
+import TopW from '../../../components/Charts/Chest/InclinedDumbbellChestFly/TopW'
+import TotalW from '../../../components/Charts/Chest/InclinedDumbbellChestFly/TotalW'
+import TotalI from '../../../components/Charts/Chest/InclinedDumbbellChestFly/TotalI'
+
+
+export default defineComponent({
+  name: 'InclinedDumbbellChestFlyMetrics',
+  components: {
+    TopW, TotalW, TotalI
+  },
+  data() {
+    return {}
+  }
+})
+</script>
