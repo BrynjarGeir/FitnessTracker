@@ -77,6 +77,16 @@
               </q-item-section>
             </q-item>
 
+            <q-item clickable v-ripple to='/Core'>
+              <q-item-section avatar>
+                <q-icon name='looks_6'/>
+              </q-item-section>
+
+              <q-item-section>
+                Core Exercises
+              </q-item-section>
+            </q-item>
+
             <q-item clickable v-ripple to='/Endurance'>
               <q-item-section avatar>
                 <q-icon name='directions_run'/>

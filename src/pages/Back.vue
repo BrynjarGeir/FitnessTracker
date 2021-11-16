@@ -42,7 +42,13 @@
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w71"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n71"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w72"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n72"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w73"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n73"/></div></div>
-    <q-btn @click="ex7"> Log exercise </q-btn> 
+    <q-btn @click="ex7"> Log exercise </q-btn>
+
+    <h6 class="q-mt-none"> Superman Pull </h6>
+    <q-input type="number" placeholder="Number of iterations" v-model="n81"/>
+    <q-input type="number" placeholder="Number of iterations" v-model="n82"/>
+    <q-input type="number" placeholder="Number of iterations" v-model="n83"/>
+    <q-btn @click="ex8"> Log exercise </q-btn> 
   </q-page>
 </template>
 
@@ -69,7 +75,8 @@ export default defineComponent({
         n41: null, n42: null, n43: null,
         n51: null, n52: null, n53: null,
         n61: null, n62: null, n63: null,
-        n71: null, n72: null, n73: null
+        n71: null, n72: null, n73: null,
+        n81: null, n82: null, n83: null
     }
   },
 
@@ -154,7 +161,19 @@ export default defineComponent({
             this.n71 = null, this.n72 = null, this.n73 = null          
       )
 
-    }      
+    },
+    async ex8() {
+      await setDoc(doc(db, 'back', 'Superman-Pull' + Date.now()), {
+          name: 'Superman Pull',
+          weight: [parseInt(this.w71), parseInt(this.w72), parseInt(this.w73)],
+          iterations: [parseInt(this.n61), parseInt(this.w62), parseInt(this.w63)],
+          date: Date.now()
+      }).then(
+            this.w71 = null, this.w72 = null, this.w73 = null,
+            this.n71 = null, this.n72 = null, this.n73 = null          
+      )
+
+    }            
   }
 })
 </script>

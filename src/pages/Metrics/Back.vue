@@ -21,6 +21,9 @@
     <div class='column'>
       <SeatedCableRowCard/>
     </div>
+    <div class='column'>
+      <StandingRowCard/>
+    </div>
   </div>
 </template>
 
@@ -33,13 +36,14 @@ import InvertedRowCard from '../../components/Metrics/Back/InvertedRowCard'
 import RenegadeRowCard from '../../components/Metrics/Back/RenegadeRowCard'
 import LatPulldownCard from '../../components/Metrics/Back/LatPulldownCard'
 import SeatedCableRowCard from '../../components/Metrics/Back/SeatedCableRowCard'
+import StandingRowCard from '../../components/Metrics/Back/StandingRowCard'
 
 
 
 export default defineComponent({
   name: 'Metrics',
   components: {
-    DeadliftCard, PullUpCard, SingleArmRowCard, InvertedRowCard, RenegadeRowCard, LatPulldownCard, SeatedCableRowCard
+    DeadliftCard, PullUpCard, SingleArmRowCard, InvertedRowCard, RenegadeRowCard, LatPulldownCard, SeatedCableRowCard, StandingRowCard
   }
 })
 </script>

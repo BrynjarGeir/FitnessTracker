@@ -21,6 +21,9 @@
     <div class='column'>
       <WeightFatCard/>
     </div>
+    <div class='column'>
+      <CoreCard/>
+    </div>
   </div>
 </template>
 
@@ -33,12 +36,13 @@ import TricepCard from '../../components/Metrics/TricepsCard'
 import BicepCard from '../../components/Metrics/BicepsCard'
 import EnduranceCard from '../../components/Metrics/EnduranceCard'
 import WeightFatCard from '../../components/Metrics/WeightFatCard'
+import CoreCard from '../../components/Metrics/CoreCard'
 
 
 export default defineComponent({
   name: 'Metrics',
   components: {
-    LegCard, BackCard, ChestCard, TricepCard, BicepCard, EnduranceCard, WeightFatCard
+    LegCard, BackCard, ChestCard, TricepCard, BicepCard, EnduranceCard, WeightFatCard, CoreCard
   }
 })
 </script>
