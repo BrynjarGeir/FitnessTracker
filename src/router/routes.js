@@ -29,6 +29,7 @@ const routes = [
       { path: 'Metrics/Back/SingleArmRow', component: () => import('pages/Metrics/Back/SingleArmRow.vue') },
       { path: 'Metrics/Back/RenegadeRow', component: () => import('pages/Metrics/Back/RenegadeRow.vue') },
       { path: 'Metrics/Back/SeatedCableRow', component: () => import('pages/Metrics/Back/SeatedCableRow.vue') },
+      { path: 'Metrics/Back/SupermanPull', component: () => import('pages/Metrics/Back/SupermanPull.vue') },
       { path: 'Metrics/Back/StandingRow', component: () => import('pages/Metrics/Back/StandingRow.vue') },
       { path: 'Metrics/Legs/Squat', component: () => import('pages/Metrics/Legs/Squat.vue') },
       { path: 'Metrics/Legs/BulgarianSplitSquat', component: () => import('pages/Metrics/Legs/BulgarianSplitSquat.vue') },

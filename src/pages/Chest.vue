@@ -95,7 +95,7 @@ export default defineComponent({
     async ex1() {
       await setDoc(doc(db, 'chest', 'Chest-Press' + Date.now()), {
           name: 'Chest Press',
-          weight: [parseInt(this.w11), parseInt(this.w12), parseInt(this.w13), parseInt(this.w14), parseInt(this.w15)],
+          weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14), parseFloat(this.w15)],
           iterations:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14), parseInt(this.n15)],
           date: Date.now()
       }).then(
@@ -107,7 +107,7 @@ export default defineComponent({
     async ex2() {
       await setDoc(doc(db, 'chest', 'Inclined-Chest-Press' + Date.now()), {
           name: 'Inclined Chest Press',
-          weight: [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23)],
+          weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
@@ -119,7 +119,7 @@ export default defineComponent({
     async ex3() {
       await setDoc(doc(db, 'chest', 'Cable-Fly' + Date.now()), {
           name: 'Cable Fly',
-          weight:  [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23)],
+          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
@@ -140,8 +140,8 @@ export default defineComponent({
     async ex5() {    
       await setDoc(doc(db, 'chest', 'Narrow-Press-Up' + Date.now()), {
           name: 'Narrow Press Up',
-          weight: [parseInt(this.w51), parseInt(this.w52), parseInt(this.w53)],
-          iterattions: [parseInt(this.n51), parseInt(this.w52), parseInt(this.w53)],
+          weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53)],
+          iterattions: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],
           date: Date.now()
       }).then(
           this.w51 = null, this.w52 = null, this.w53 = null,
@@ -152,8 +152,8 @@ export default defineComponent({
     async ex6() {
       setDoc(doc(db, 'chest', 'Dumbbell-Chest-Press' + Date.now()), {
           name: 'Dumbbell Chest Press',
-          weight: [parseInt(this.w61), parseInt(this.w62), parseInt(this.w63)],
-          iterations: [parseInt(this.n61), parseInt(this.w62), parseInt(this.w63)],
+          weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
+          iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],
           date: Date.now()
       }).then(
             this.w61 = null, this.w62 = null, this.w63 = null,
@@ -164,7 +164,7 @@ export default defineComponent({
     async ex7() {
       await setDoc(doc(db, 'chest', 'Dumbbell-Chest-Fly' + Date.now()), {
           name: 'Dumbbell Chest Fly',
-          weight: [parseInt(this.w71), parseInt(this.w72), parseInt(this.w73)],
+          weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73)],
           iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73)],
           date: Date.now()
       }).then(
@@ -175,8 +175,8 @@ export default defineComponent({
     async ex8() {
       await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Fly' + Date.now()), {
           name: 'Inclined Dumbbell Chest Fly',
-          weight: [parseInt(this.w81), parseInt(this.w82), parseInt(this.w83)],
-          iterations: [parseInt(this.n81), parseInt(this.w82), parseInt(this.w83)],
+          weight: [parseFloat(this.w81), parseFloat(this.w82), parseFloat(this.w83)],
+          iterations: [parseInt(this.n81), parseInt(this.n82), parseInt(this.n83)],
           date: Date.now()
       }).then(
             this.w81 = null, this.w82 = null, this.w83 = null,
@@ -186,8 +186,8 @@ export default defineComponent({
     async ex9() {
       await setDoc(doc(db, 'chest', 'Machine-Fly' + Date.now()), {
           name: 'Machine Fly',
-          weight: [parseInt(this.w91), parseInt(this.w92), parseInt(this.w93)],
-          iterations: [parseInt(this.n91), parseInt(this.w92), parseInt(this.w93)],
+          weight: [parseFloat(this.w91), parseFloat(this.w92), parseFloat(this.w93)],
+          iterations: [parseInt(this.n91), parseInt(this.n92), parseInt(this.n93)],
           date: Date.now()
       }).then(
             this.w91 = null, this.w92 = null, this.w93 = null,

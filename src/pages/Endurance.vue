@@ -42,7 +42,7 @@ export default defineComponent({
             await setDoc(doc(db, 'endurance', 'running' + Date.now()), {
                 name: 'Running',
                 duration: parseInt(this.d1),
-                length: parseInt(this.l1),
+                length: parseFloat(this.l1),
                 calories: parseInt(this.c1),
                 date: Date.now()
             }).then(this.d1 = null, this.l1 = null, this.c1 = null)
@@ -52,7 +52,7 @@ export default defineComponent({
             await setDoc(doc(db, 'endurance', 'cycling' + Date.now()), {
                 name: 'Cycling',
                 duration: parseInt(this.d2),
-                length: parseInt(this.l2),
+                length: parseFloat(this.l2),
                 calories: parseInt(this.c2),
                 date: Date.now()
             }).then(this.d2 = null, this.l2 = null, this.c2 = null)

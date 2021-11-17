@@ -28,9 +28,9 @@ export default defineComponent({
 
     methods: {
         async ex1() {
-            await setDoc(doc(db, 'core', 'Wood Chopper' + Date.now()), {
+            await setDoc(doc(db, 'core', 'Wood-Chopper' + Date.now()), {
                 name: 'Wood Chopper',
-                weight: [parseInt(this.w11), parseInt(this.W12), parseInt(this.w13)],
+                weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13)],
                 iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13)],
                 date: Date.now()
             }).then(this.w11 = null, this.w12 = null, this.w13 = null,

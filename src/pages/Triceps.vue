@@ -53,7 +53,7 @@ export default defineComponent({
     async ex1() {
       await setDoc(doc(db, 'triceps', 'Narrow-chest-press' + Date.now()), {
           name: 'Narrow Chest Press',
-          weight: [parseInt(this.w11), parseInt(this.w12), parseInt(this.w13), parseInt(this.w14)],
+          weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
           iterattions:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
           date: Date.now()
       }).then(
@@ -65,7 +65,7 @@ export default defineComponent({
     async ex2() {
       await setDoc(doc(db, 'triceps', 'Cable-rope-tricep-pulldown' + Date.now()), {
           name: 'Cable Rope Tricep Pulldown',
-          weight: [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23)],
+          weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
@@ -77,7 +77,7 @@ export default defineComponent({
     async ex3() {
       await setDoc(doc(db, 'triceps', 'Lying-tricep-extension' + Date.now()), {
           name: 'Lying Tricep Extension',
-          weight:  [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23)],
+          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(

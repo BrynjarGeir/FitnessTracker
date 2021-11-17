@@ -47,7 +47,7 @@ export default defineComponent({
         async ex1() {
             await setDoc(doc(db, 'legs', 'Squat' + Date.now()), {
                 name: 'Squat',
-                weight: [parseInt(this.w11), parseInt(this.w12), parseInt(this.w13), parseInt(this.w14)],
+                weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
                 iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
                 date: Date.now()
             }).then(
@@ -59,7 +59,7 @@ export default defineComponent({
         async ex2() {
             await setDoc(doc(db, 'legs', 'BulgSplitSquat' + Date.now()), {
                 name: 'Bulgarian Split Squat',
-                weight: [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23), parseInt(this.w24)],
+                weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23), parseFloat(this.w24)],
                 iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24)],
                 date: Date.now()
             }).then(
@@ -72,7 +72,7 @@ export default defineComponent({
         async ex3() {
             await setDoc(doc(db, 'legs', 'WalkingLunge' + Date.now()), {
                 name: 'Walking Lunge',
-                weight: [parseInt(this.w31), parseInt(this.w32), parseInt(this.w33)],
+                weight: [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33)],
                 iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33)],
                 date: Date.now()
             }).then(

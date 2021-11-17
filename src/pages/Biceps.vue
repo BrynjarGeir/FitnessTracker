@@ -16,8 +16,8 @@
 
     <h6 class="q-mt-none"> Standing Dumbbell Curl </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w41"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n41"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w41"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n42"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w41"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n43"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w42"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n42"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w43"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n43"/></div></div>
     <q-btn @click="ex4"> Log exercise </q-btn>  
 
     <h6 class="q-mt-none"> Inclined Dumbbell Curl </h6>
@@ -62,7 +62,7 @@ export default defineComponent({
     async ex1() {
       await setDoc(doc(db, 'biceps', 'Barbell-Curl' + Date.now()), {
           name: 'Barbell Curl',
-          weight: [parseInt(this.w11), parseInt(this.w12), parseInt(this.w13), parseInt(this.w14)],
+          weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
           iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
           date: Date.now()
       }).then(
@@ -74,7 +74,7 @@ export default defineComponent({
     async ex3() {
       await setDoc(doc(db, 'biceps', 'Hammer-Curl' + Date.now()), {
           name: 'Hammer Curl',
-          weight:  [parseInt(this.w21), parseInt(this.w22), parseInt(this.w23)],
+          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
@@ -86,17 +86,19 @@ export default defineComponent({
     async ex4() {
       await setDoc(doc(db, 'biceps', 'Standing-Dumbbell-Curl' + Date.now()), {
           name: 'Standing Dumbbell Curl',
+          weight: [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43)],
           iterations:  [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
           date: Date.now()
       }).then(
-          this.n41 = null, this.n41 = null, this.n43 = null   
+          this.w41 = null, this.w42 = null, this.w43 = null,
+          this.n41 = null, this.n42 = null, this.n43 = null   
       )
     },
     async ex5() {    
       await setDoc(doc(db, 'biceps', 'Inclined-Dumbbell-Curl' + Date.now()), {
           name: 'Inclined Dumbbell Curl',
-          weight: [parseInt(this.w51), parseInt(this.w52), parseInt(this.w53)],
-          iterattions: [parseInt(this.n51), parseInt(this.w52), parseInt(this.w53)],
+          weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53)],
+          iterattions: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],
           date: Date.now()
       }).then(
           this.w51 = null, this.w52 = null, this.w53 = null,
@@ -107,8 +109,8 @@ export default defineComponent({
     async ex6() {
       setDoc(doc(db, 'biceps', 'Zottman-Curl' + Date.now()), {
           name: 'Zottman Curl',
-          weight: [parseInt(this.w61), parseInt(this.w62), parseInt(this.w63)],
-          iterations: [parseInt(this.n61), parseInt(this.w62), parseInt(this.w63)],
+          weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
+          iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],
           date: Date.now()
       }).then(
             this.w61 = null, this.w62 = null, this.w63 = null,
