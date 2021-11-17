@@ -109,7 +109,7 @@ export default defineComponent({
       await setDoc(doc(db, 'back', 'Pull-Up' + Date.now()), {
           name: 'Pull Up',
           weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23), parseFloat(this.w24)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24)],
+          iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24)],
           date: Date.now()
       }).then(
             this.w21 = null, this.w22 = null, this.w23 = null, this.w24 = null,
@@ -121,7 +121,7 @@ export default defineComponent({
       await setDoc(doc(db, 'back', 'Single-Arm-Row' + Date.now()), {
           name: 'Single-Arm Row',
           weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
+          iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
             this.w31 = null, this.w32 = null, this.w33 = null,
@@ -151,10 +151,10 @@ export default defineComponent({
 
     },
     async ex6() {
-      setDoc(doc(db, 'back', 'LatPulldown' + Date.now()), {
+      setDoc(doc(db, 'back', 'Lat-Pulldown' + Date.now()), {
           name: 'Lat Pulldown',
           weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
-          iterations: [parseInt(this.n61), parseInt(this.w62), parseInt(this.w63)],
+          iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],
           date: Date.now()
       }).then(
             this.w61 = null, this.w62 = null, this.w63 = null,
@@ -166,7 +166,7 @@ export default defineComponent({
       await setDoc(doc(db, 'back', 'Seated-Cable-Row' + Date.now()), {
           name: 'Seated Cable Row',
           weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73)],
-          iterations: [parseInt(this.n71), parseInt(this.w72), parseInt(this.w73)],
+          iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73)],
           date: Date.now()
       }).then(
             this.w71 = null, this.w72 = null, this.w73 = null,
