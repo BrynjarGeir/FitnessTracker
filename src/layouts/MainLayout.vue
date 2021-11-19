@@ -15,7 +15,7 @@
           <q-btn to='/'>Fitness Tracker</q-btn>
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn @click="googleSignOut">Log Out</q-btn>
       </q-toolbar>
     </q-header>
 
@@ -141,11 +141,24 @@
 <script>
 
 import { defineComponent, ref } from 'vue'
+import { signOut, getAuth } from 'firebase/auth'
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
+  },
+
+  methods: {
+    googleSignOut() {
+      const auth = getAuth()
+      signOut(auth).then(() => {
+        console.log('Sign Out Successful!')
+        this.$router.push('/Login')
+      }).catch((error) => {
+        console.log('error',error)
+      })
+    }
   },
 
   setup () {

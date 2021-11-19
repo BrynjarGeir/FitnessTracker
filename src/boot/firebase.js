@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { initializeApp  } from '@firebase/app';
 import { getFirestore, collection, getDocs } from '@firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD955Z5nbBFvFQJwWPj5HLZXu6k3kjmS-4",
@@ -15,6 +16,15 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
+
+const auth = getAuth()
+
+onAuthStateChanged(auth, (user) => {
+  if(user) {
+    return user
+  } else {
+  }
+})
 
 const db = getFirestore(app)
 
