@@ -27,13 +27,17 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
 
-  Router.beforeEach(async (to, from, next) => {
-    const auth = to.meta.requiresAuth
-    if (auth && !await getAuth().currentUser) {
-      next('/Login')
-    } else {
-      next()
-    }
+  Router.beforeEach((to, from, next) => {
+    const reqAuth = to.meta.requiresAuth
+    const auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      user = auth.currentUser
+      if (reqAuth && !user) {
+        next('/Login')
+      } else {
+        next()
+      }
+    })
   })
 
   return Router

@@ -107,7 +107,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple to='/Metrics/Metrics'>
+            <q-item clickable v-ripple to='/Metrics'>
               <q-item-section avatar>
                 <q-icon name='analytics'/>
               </q-item-section>

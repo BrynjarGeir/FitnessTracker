@@ -40,6 +40,8 @@
 import ForgotPassword from "./ForgotPassword.vue";
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, 
         signInWithEmailAndPassword, sendPasswordResetEmail, fetchSignInMethodsForEmail } from 'firebase/auth'
+import { db } from 'src/boot/firebase'
+import { setDoc, doc } from 'firebase/app'
 
 export default {
   name: "AuthComponent",
@@ -57,13 +59,12 @@ export default {
   methods: {
     submitForm () {
       if (this.tab === 'login') {
-         this.signInExistingUser(this.formData.email, this.formData.password)
+          this.signInExistingUser(this.formData.email, this.formData.password) 
       } else {
         this.createUser(this.formData.email, this.formData.password)
       }
     },
     google () {
-      console.log('google login & signup')
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider).then((result) => {
@@ -77,7 +78,7 @@ export default {
         const errorMessage = error.message
         const email = error.email
         const credential = GoogleAuthProvider.credentialFromError(error)
-        console.log(errorCode, errorMessage, email, credential)
+        this.$q.notify({message: 'Could not sign in with Google!'})
       })
     },
      signInExistingUser (email, password) {
@@ -86,7 +87,11 @@ export default {
         this.$q.notify({message: 'Sign In Success.'})
         this.$router.push('/')
       }).catch(error => {
-            console.log('error', error)
+        const errorCode = error.code
+        const errorMessage = error.message
+        const email = error.email
+        const credential = GoogleAuthProvider.credentialFromError(error)
+        this.$q.notify({message: 'User/Password combination does not exist!'})
       })
     },
     createUser(email, password) {
@@ -94,6 +99,7 @@ export default {
       createUserWithEmailAndPassword(auth, email, password).then(() => {
         this.$q.notify({message: 'Sign In Success.'})
         this.$router.push('/')
+        //setDoc(doc(db, 'fitnesstracker', email))
       }).catch(error => {
         fetchSignInMethodsForEmail(auth, email).then((signInMehotds) => {
           if(signInMehotds.length) {

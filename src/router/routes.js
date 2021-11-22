@@ -13,7 +13,7 @@ const routes = [
       { path: '/WeightFat', component: () => import('pages/WeightFat.vue'), meta: {requiresAuth: true} },
       { path: '/Chest', component: () => import('pages/Chest.vue'), meta: {requiresAuth: true} },
       { path: '/Core', component: () => import('pages/Core.vue'), meta: {requiresAuth: true} },
-      { path: '/Metrics/Metrics', component: () => import('pages/Metrics/Metrics.vue'), meta: {requiresAuth: true} },
+      { path: '/Metrics', component: () => import('pages/Metrics/Metrics.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics/Legs', component: () => import('pages/Metrics/Legs.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics/Back', component: () => import('pages/Metrics/Back.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics/Triceps', component: () => import('pages/Metrics/Triceps.vue'), meta: {requiresAuth: true} },
@@ -53,6 +53,7 @@ const routes = [
       { path: 'Metrics/Biceps/ZottmanCurl', component: () => import('pages/Metrics/Biceps/ZottmanCurl.vue'), meta: {requiresAuth: true} },
       { path: 'Metrics/Endurance/Cycling', component: () => import('pages/Metrics/Endurance/Cycling.vue'), meta: {requiresAuth: true} },
       { path: 'Metrics/Endurance/Running', component: () => import('pages/Metrics/Endurance/Running.vue'), meta: {requiresAuth: true} },
+      { path: 'Metrics/Endurance/Swimming', component: () => import('pages/Metrics/Endurance/Swimming.vue'), meta: {requiresAuth: true} },
       { path: 'Metrics/WeightFat/FatPercentage', component: () => import('pages/Metrics/WeightFat/FatPercentage.vue'), meta: {requiresAuth: true} },
       { path: 'Metrics/WeightFat/Weight', component: () => import('pages/Metrics/WeightFat/Weight.vue'), meta: {requiresAuth: true} }
     ]

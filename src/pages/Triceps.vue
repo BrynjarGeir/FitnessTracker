@@ -16,9 +16,15 @@
 
     <h6 class="q-mt-none"> Lying Tricep Extension </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n31"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n32"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n33"/></div></div>
-    <q-btn @click="ex3"> Log exercise </q-btn> 
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w32"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n32"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w33"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n33"/></div></div>
+    <q-btn @click="ex3"> Log exercise </q-btn>
+
+    <h6 class="q-mt-none"> Dips on Bench </h6>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w41"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n41"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w42"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n42"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w43"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n43"/></div></div>
+    <q-btn @click="ex4"> Log exercise </q-btn>    
   </q-page>
 </template>
 
@@ -36,16 +42,11 @@ export default defineComponent({
         w11: null, w12: null, w13: null, w14: null,
         w21: null, w22: null, w23: null,
         w31: null, w32: null, w33: null,
-        w51: null, w52: null, w53: null,
-        w61: null, w62: null, w63: null,
-        w71: null, w72: null, w73: null,
+        w41: null, w42: null, w43: null,
         n11: null, n12: null, n13: null, n14: null,
         n21: null, n22: null, n23: null,
         n31: null, n32: null, n33: null,
-        n41: null, n42: null, n43: null,
-        n51: null, n52: null, n53: null,
-        n61: null, n62: null, n63: null,
-        n71: null, n72: null, n73: null
+        n41: null, n42: null, n43: null
     }
   },
 
@@ -66,7 +67,7 @@ export default defineComponent({
       await setDoc(doc(db, 'triceps', 'Cable-rope-tricep-pulldown' + Date.now()), {
           name: 'Cable Rope Tricep Pulldown',
           weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
+          iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
             this.w21 = null, this.w22 = null, this.w23 = null,
@@ -77,14 +78,25 @@ export default defineComponent({
     async ex3() {
       await setDoc(doc(db, 'triceps', 'Lying-tricep-extension' + Date.now()), {
           name: 'Lying Tricep Extension',
-          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
+          weight:  [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33)],
+          iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33)],
           date: Date.now()
       }).then(
             this.w31 = null, this.w32 = null, this.w33 = null,
             this.n31 = null, this.n32 = null, this.n33 = null
       )
-    }    
+    },
+    async ex4() {
+      await setDoc(doc(db, 'triceps', 'Dips-On-Bench' + Date.now()), {
+          name: 'Dips On Bench',
+          weight:  [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43)],
+          iterations: [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
+          date: Date.now()
+      }).then(
+            this.w41 = null, this.w42 = null, this.w43 = null,
+            this.n41 = null, this.n42 = null, this.n43 = null
+      )
+    }        
   }
 })
 </script>

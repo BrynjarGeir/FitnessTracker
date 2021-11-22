@@ -6,20 +6,20 @@
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w12'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n12'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w13'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n13'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w14'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n14'/></div></div>
-        <q-btn @click="ex1"> Log exercise </q-btn> <br>
+        <q-btn @click="ex1"> Log Exercise </q-btn> <br>
 
         <h6 class='q-pa-sm'> Bulgarian Split Squat </h6>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w21'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n21'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w22'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n22'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w23'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n23'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w24'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n24'/></div></div>
-        <q-btn @click="ex2"> Log exercise </q-btn> <br>
+        <q-btn @click="ex2"> Log Exercise </q-btn> <br>
 
         <h6 class='q-pa-sm'> Walking lunge </h6>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w31'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n31'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w32'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n32'/></div></div>
         <div class='row'><div class='col'><q-input type='number' placeholder='Weight of Exercise' v-model='w33'/></div><div class='col'><q-input type='number' placeholder='Number of iterations' v-model='n33'/></div></div>
-        <q-btn @click="ex3"> Log exercise </q-btn> <br>
+        <q-btn @click="ex3"> Log Exercise </q-btn> <br>
 
     </q-page>
 </template>

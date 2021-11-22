@@ -1,8 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { initializeApp  } from '@firebase/app';
-import { getFirestore, collection, getDocs } from '@firebase/firestore';
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getFirestore } from '@firebase/firestore';
+import { getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence, signInWithEmailAndPassword } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD955Z5nbBFvFQJwWPj5HLZXu6k3kjmS-4",
@@ -25,6 +25,8 @@ onAuthStateChanged(auth, (user) => {
   } else {
   }
 })
+
+setPersistence(auth, browserSessionPersistence)
 
 const db = getFirestore(app)
 
