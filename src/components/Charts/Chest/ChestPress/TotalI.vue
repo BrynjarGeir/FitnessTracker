@@ -31,11 +31,11 @@ export default {
       const q = query(collection(db, 'chest'), where('name', '==', 'Chest Press'))
       const qSnapShot = await getDocs(q)
       const dates = []
-      const topW = []
+      const totalI = []
       qSnapShot.forEach((doc) => {
         let currDate = new Date(doc.data().date)
         dates.push(currDate.getDate() + '/' + currDate.getMonth() + '/' + currDate.getFullYear().toString())
-        topW.push(doc.data().weight.reduce((a,b) => a+b,0))
+        totalI.push(doc.data().iterations.reduce((a,b) => a+b,0))
       })
       const myChart = new Chart(ctx, {
         type: 'line',
