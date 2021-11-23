@@ -28,7 +28,7 @@ export default {
   methods: {
     async createChart (chartId) {
       const ctx = document.getElementById(chartId)
-      const q = query(collection(db, 'chest'), where('name', '==', 'Wood Chopper'))
+      const q = query(collection(db, 'core'), where('name', '==', 'Wood Chopper'))
       const qSnapShot = await getDocs(q)
       const dates = []
       const totalI = []

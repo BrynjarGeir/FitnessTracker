@@ -18,8 +18,8 @@
 
     <h6 class="q-mt-none"> Cable Fly </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n31"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n32"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n33"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w32"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n32"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w33"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n33"/></div></div>
     <q-btn @click="ex3"> Log exercise </q-btn> 
 
     <h6 class="q-mt-none"> Press up </h6>
@@ -44,19 +44,25 @@
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w71"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n71"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w72"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n72"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w73"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n73"/></div></div>
-    <q-btn @click="ex7"> Log exercise </q-btn> 
+    <q-btn @click="ex7"> Log exercise </q-btn>
 
-    <h6 class="q-mt-none"> Inclined Dumbbell Chest Fly </h6>
+    <h6 class="q-mt-none"> Inclined Dumbbell Chest Press </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w81"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n81"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w82"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n82"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w83"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n83"/></div></div>
     <q-btn @click="ex8"> Log exercise </q-btn> 
 
-    <h6 class="q-mt-none"> Machine Fly </h6>
+    <h6 class="q-mt-none"> Inclined Dumbbell Chest Fly </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w91"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n91"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w92"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n92"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w93"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n93"/></div></div>
     <q-btn @click="ex9"> Log exercise </q-btn> 
+
+    <h6 class="q-mt-none"> Machine Fly </h6>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w101"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n101"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w102"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n102"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w103"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n103"/></div></div>
+    <q-btn @click="ex10"> Log exercise </q-btn> 
   </q-page>
 </template>
 
@@ -79,6 +85,7 @@ export default defineComponent({
         w71: null, w72: null, w73: null,
         w81: null, w82: null, w83: null,
         w91: null, w92: null, w93: null,
+        w101: null, w102: null, w103: null,
         n11: null, n12: null, n13: null, n14: null, n15: null,
         n21: null, n22: null, n23: null,
         n31: null, n32: null, n33: null,
@@ -87,7 +94,8 @@ export default defineComponent({
         n61: null, n62: null, n63: null,
         n71: null, n72: null, n73: null,
         n81: null, n82: null, n83: null,
-        n91: null, n92: null, n93: null
+        n91: null, n92: null, n93: null,
+        n101: null, n102: null, n103: null
     }
   },
 
@@ -173,8 +181,8 @@ export default defineComponent({
       )
     },
     async ex8() {
-      await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Fly' + Date.now()), {
-          name: 'Inclined Dumbbell Chest Fly',
+      await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Press' + Date.now()), {
+          name: 'Inclined Dumbbell Chest Press',
           weight: [parseFloat(this.w81), parseFloat(this.w82), parseFloat(this.w83)],
           iterations: [parseInt(this.n81), parseInt(this.n82), parseInt(this.n83)],
           date: Date.now()
@@ -184,14 +192,25 @@ export default defineComponent({
       )
     },
     async ex9() {
-      await setDoc(doc(db, 'chest', 'Machine-Fly' + Date.now()), {
-          name: 'Machine Fly',
+      await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Fly' + Date.now()), {
+          name: 'Inclined Dumbbell Chest Fly',
           weight: [parseFloat(this.w91), parseFloat(this.w92), parseFloat(this.w93)],
           iterations: [parseInt(this.n91), parseInt(this.n92), parseInt(this.n93)],
           date: Date.now()
       }).then(
             this.w91 = null, this.w92 = null, this.w93 = null,
             this.n91 = null, this.n92 = null, this.n93 = null          
+      )
+    },
+    async ex10() {
+      await setDoc(doc(db, 'chest', 'Machine-Fly' + Date.now()), {
+          name: 'Machine Fly',
+          weight: [parseFloat(this.w101), parseFloat(this.w102), parseFloat(this.w103)],
+          iterations: [parseInt(this.n101), parseInt(this.n102), parseInt(this.n103)],
+          date: Date.now()
+      }).then(
+            this.w101 = null, this.w102 = null, this.w103 = null,
+            this.n101 = null, this.n102 = null, this.n103 = null          
       )
     }               
   }

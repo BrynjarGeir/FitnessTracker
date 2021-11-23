@@ -22,6 +22,9 @@
       <DumbbellChestFlyCard/>
     </div>
     <div class='column'>
+      <InclinedDumbbellChestPressCard/>
+    </div>
+    <div class='column'>
       <InclinedDumbbellChestFlyCard/>
     </div>
     <div class='column'>
@@ -41,6 +44,7 @@ import DumbbellChestPressCard from '../../components/Metrics/Chest/DumbbellChest
 import DumbbellChestFlyCard from '../../components/Metrics/Chest/DumbbellChestFlyCard'
 import InclinedDumbbellChestFlyCard from '../../components/Metrics/Chest/InclinedDumbbellChestFlyCard'
 import MachineFlyCard from '../../components/Metrics/Chest/MachineFlyCard'
+import InclinedDumbbellChestPressCard from '../../components/Metrics/Chest/InclinedDumbbellChestPressCard'
 
 
 
@@ -49,7 +53,7 @@ export default defineComponent({
   name: 'Metrics',
   components: {
     ChestPressCard, InclinedChestPressCard, CableFlyCard, PressUpCard, NarrowPressUpCard, DumbbellChestPressCard,
-    DumbbellChestFlyCard, InclinedDumbbellChestFlyCard, MachineFlyCard
+    DumbbellChestFlyCard, InclinedDumbbellChestFlyCard, MachineFlyCard, InclinedDumbbellChestPressCard
   }
 })
 </script>

@@ -3,7 +3,7 @@
     <q-card-section class="bg-blue-grey-8">
       <div class="row items-center no-wrap">
         <div class="col">
-          <div class="text-h6 text-white text-center">Top weight of wood chopper exercises</div>
+          <div class="text-h6 text-white text-center">Top weight of inclined dumbbell chest press exercises</div>
         </div>
       </div>
     </q-card-section>
@@ -28,7 +28,7 @@ export default {
   methods: {
     async createChart (chartId) {
       const ctx = document.getElementById(chartId)
-      const q = query(collection(db, 'core'), where('name', '==', 'Wood Chopper'))
+      const q = query(collection(db, 'chest'), where('name', '==', 'Inclined Dumbbell Chest Press'))
       const qSnapShot = await getDocs(q)
       const dates = []
       const topW = []
