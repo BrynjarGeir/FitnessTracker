@@ -28,6 +28,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
     name: 'PageIndex',
@@ -45,7 +46,9 @@ export default defineComponent({
 
     methods: {
         async ex1() {
-            await setDoc(doc(db, 'legs', 'Squat' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'Squat' + Date.now()), {
                 name: 'Squat',
                 weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
                 iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
@@ -57,7 +60,9 @@ export default defineComponent({
         },
 
         async ex2() {
-            await setDoc(doc(db, 'legs', 'BulgSplitSquat' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'BulgSplitSquat' + Date.now()), {
                 name: 'Bulgarian Split Squat',
                 weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23), parseFloat(this.w24)],
                 iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24)],
@@ -70,7 +75,9 @@ export default defineComponent({
         },
 
         async ex3() {
-            await setDoc(doc(db, 'legs', 'WalkingLunge' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'WalkingLunge' + Date.now()), {
                 name: 'Walking Lunge',
                 weight: [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33)],
                 iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33)],

@@ -38,8 +38,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
-//import exercises from 'src/boot/firebase'
-
+import { getAuth } from 'firebase/auth'
 export default defineComponent({
   name: 'PageIndex',
 
@@ -60,7 +59,9 @@ export default defineComponent({
 
   methods: {
     async ex1() {
-      await setDoc(doc(db, 'biceps', 'Barbell-Curl' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Barbell-Curl' + Date.now()), {
           name: 'Barbell Curl',
           weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
           iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
@@ -72,10 +73,12 @@ export default defineComponent({
 
     },
     async ex3() {
-      await setDoc(doc(db, 'biceps', 'Hammer-Curl' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Hammer-Curl' + Date.now()), {
           name: 'Hammer Curl',
           weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
+          iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
           date: Date.now()
       }).then(
             this.w31 = null, this.w32 = null, this.w33 = null,
@@ -84,7 +87,9 @@ export default defineComponent({
 
     },
     async ex4() {
-      await setDoc(doc(db, 'biceps', 'Standing-Dumbbell-Curl' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Standing-Dumbbell-Curl' + Date.now()), {
           name: 'Standing Dumbbell Curl',
           weight: [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43)],
           iterations:  [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
@@ -94,8 +99,10 @@ export default defineComponent({
           this.n41 = null, this.n42 = null, this.n43 = null   
       )
     },
-    async ex5() {    
-      await setDoc(doc(db, 'biceps', 'Inclined-Dumbbell-Curl' + Date.now()), {
+    async ex5() {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Inclined-Dumbbell-Curl' + Date.now()), {
           name: 'Inclined Dumbbell Curl',
           weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53)],
           iterattions: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],
@@ -107,7 +114,9 @@ export default defineComponent({
 
     },
     async ex6() {
-      setDoc(doc(db, 'biceps', 'Zottman-Curl' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Zottman-Curl' + Date.now()), {
           name: 'Zottman Curl',
           weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
           iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],

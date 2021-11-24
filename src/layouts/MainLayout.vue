@@ -15,7 +15,7 @@
           <q-btn to='/'>Fitness Tracker</q-btn>
         </q-toolbar-title>
 
-        <q-btn @click="googleSignOut">Log Out</q-btn>
+        <q-btn @click="signOut">Log Out</q-btn>
       </q-toolbar>
     </q-header>
 
@@ -150,10 +150,10 @@ export default defineComponent({
   },
 
   methods: {
-    googleSignOut() {
+    signOut() {
       const auth = getAuth()
       signOut(auth).then(() => {
-        console.log('Sign Out Successful!')
+        this.$q.notify('Sign Out Successful!')
         this.$router.push('/Login')
       }).catch((error) => {
         console.log('error',error)

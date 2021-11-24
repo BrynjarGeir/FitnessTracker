@@ -17,6 +17,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
     name: 'PageIndex',
@@ -29,7 +30,9 @@ export default defineComponent({
 
     methods: {
         async ex1() {
-            await setDoc(doc(db, 'weight', 'Weight' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/weight', 'Weight' + Date.now()), {
                 name: 'Weight',
                 weight: parseInt(this.w),
                 date: Date.now()
@@ -37,7 +40,9 @@ export default defineComponent({
         },
 
         async ex2() {
-            await setDoc(doc(db, 'fat', 'FatPer' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/fat', 'FatPer' + Date.now()), {
                 name: 'Fat Percentage',
                 percentage: parseInt(this.fp),
                 date: Date.now()

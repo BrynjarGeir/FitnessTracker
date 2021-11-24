@@ -33,6 +33,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
     name: 'PageIndex',
@@ -47,7 +48,9 @@ export default defineComponent({
 
     methods: {
         async ex1() {
-            await setDoc(doc(db, 'endurance', 'Running' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/endurance', 'Running' + Date.now()), {
                 name: 'Running',
                 duration: parseInt(this.d1),
                 length: parseFloat(this.l1),
@@ -57,7 +60,9 @@ export default defineComponent({
         },
 
         async ex2() {
-            await setDoc(doc(db, 'endurance', 'Cycling' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/endurance', 'Cycling' + Date.now()), {
                 name: 'Cycling',
                 duration: parseInt(this.d2),
                 length: parseFloat(this.l2),
@@ -67,7 +72,9 @@ export default defineComponent({
         },
 
         async ex3() {
-            await setDoc(doc(db, 'endurance', 'Swimming' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/endurance', 'Swimming' + Date.now()), {
                 name: 'Swimming',
                 duration: parseInt(this.d3),
                 length: parseFloat(this.l3),

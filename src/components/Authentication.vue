@@ -39,9 +39,10 @@
 <script>
 import ForgotPassword from "./ForgotPassword.vue";
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, 
-        signInWithEmailAndPassword, sendPasswordResetEmail, fetchSignInMethodsForEmail } from 'firebase/auth'
-import { db } from 'src/boot/firebase'
-import { setDoc, doc } from 'firebase/app'
+        signInWithEmailAndPassword, sendPasswordResetEmail, fetchSignInMethodsForEmail,
+        getAdditionalUserInfo } from 'firebase/auth'
+import db from 'src/boot/firebase'
+import { setDoc, doc } from 'firebase/firestore'
 
 export default {
   name: "AuthComponent",
@@ -71,6 +72,10 @@ export default {
         const credential = GoogleAuthProvider.credentialFromResult(result)
         const token = credential.accessToken
         const user = result.user
+        const additionalUserInfo = getAdditionalUserInfo(result)
+        if (additionalUserInfo.isNewUser) {
+          setDoc(doc(db, 'fitnesstracker', user.uid), {})
+        }
         this.$q.notify({message: 'Sign In Success.'})
         this.$router.push('/')
       }).catch((error) => {
@@ -96,14 +101,15 @@ export default {
     },
     createUser(email, password) {
       const auth = getAuth()
-      createUserWithEmailAndPassword(auth, email, password).then(() => {
+      createUserWithEmailAndPassword(auth, email, password).then(cred => {
         this.$q.notify({message: 'Sign In Success.'})
         this.$router.push('/')
-        //setDoc(doc(db, 'fitnesstracker', email))
+        setDoc(doc(db, 'fitnesstracker', cred.user.uid), {})
       }).catch(error => {
         fetchSignInMethodsForEmail(auth, email).then((signInMehotds) => {
           if(signInMehotds.length) {
             this.$q.notify({message: 'Email Already In Use!'})
+            console.log('error: ',error)
           } else {console.log('error',error)}
         })
       })

@@ -16,6 +16,7 @@
 import { defineComponent, ref, onMounted } from 'vue';
 import db from 'src/boot/firebase'
 import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 
 export default defineComponent({
@@ -30,38 +31,40 @@ export default defineComponent({
   },
   methods: {
     async getCheckboxData() {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
       let currWeight, currFatPer, currBenchWeight, currDeadWeight, currSquatWeight
-        const qWeight = query(collection(db, 'weight'), orderBy('date', 'desc'), limit(1))
-        const qWeightSnapshot = await getDocs(qWeight)
-        qWeightSnapshot.forEach((doc) => {
-          currWeight = doc.data().weight
-          if (currWeight <= 82) { this.teal = ref(true) } else { this.teal = ref(false) }
-        })
-        const qFat = query(collection(db, 'fat'), orderBy('date', 'desc'), limit(1))
-        const qFatSnapshot = await getDocs(qFat)
-        qFatSnapshot.forEach((doc) => {
-          currFatPer = doc.data().percentage
-          if (currFatPer <= 15) { this.orange = ref(true) } else { this.orange = ref(false) }
-        })
-        const qBench = query(collection(db, 'chest'), where('name', '==', 'Chest Press'), orderBy('date', 'desc'), limit(1))
-        const qBenchSnapshot = await getDocs(qBench)
-        qBenchSnapshot.forEach((doc) => {
-          currBenchWeight = Math.max(...doc.data().weight)
-          if (currBenchWeight >= 90) { this.red = ref(true) } else { this.red = ref(false) }
-        })
-        const qDeadlift = query(collection(db, 'back'), where('name', '==', 'Deadlift'), orderBy('date', 'desc'), limit(1))
-        const qDeadliftSnapshot = await getDocs(qDeadlift)
-        qDeadliftSnapshot.forEach((doc) => {
-          currDeadWeight = Math.max(...doc.data().weight)
-          if (currDeadWeight >= 150) { this.cyan = ref(true) } else { this.cyan = ref(false) }
-        })
-        const qSquat = query(collection(db, 'legs'), where('name', '==', 'Squat'), orderBy('date', 'desc'), limit(1))
-        const qSquatSnapshot = await getDocs(qSquat)
-        qSquatSnapshot.forEach((doc) => {
-          currSquatWeight = Math.max(...doc.data().weight)
-          if (currSquatWeight >= 100) { this.magenta = ref(true) } else { this.magenta = ref(false) }
-        })
-      }
+      const qWeight = query(collection(db, 'fitnesstracker/' + userID + '/weight'), orderBy('date', 'desc'), limit(1))
+      const qWeightSnapshot = await getDocs(qWeight)
+      qWeightSnapshot.forEach((doc) => {
+        currWeight = doc.data().weight
+        if (currWeight <= 82) { this.teal = ref(true) } else { this.teal = ref(false) }
+      })
+      const qFat = query(collection(db, 'fitnesstracker/' + userID + '/fat'), orderBy('date', 'desc'), limit(1))
+      const qFatSnapshot = await getDocs(qFat)
+      qFatSnapshot.forEach((doc) => {
+        currFatPer = doc.data().percentage
+        if (currFatPer <= 15) { this.orange = ref(true) } else { this.orange = ref(false) }
+      })
+      const qBench = query(collection(db, 'fitnesstracker/' + userID + '/chest'), where('name', '==', 'Chest Press'), orderBy('date', 'desc'), limit(1))
+      const qBenchSnapshot = await getDocs(qBench)
+      qBenchSnapshot.forEach((doc) => {
+        currBenchWeight = Math.max(...doc.data().weight)
+        if (currBenchWeight >= 90) { this.red = ref(true) } else { this.red = ref(false) }
+      })
+      const qDeadlift = query(collection(db, 'fitnesstracker/' + userID + '/back'), where('name', '==', 'Deadlift'), orderBy('date', 'desc'), limit(1))
+      const qDeadliftSnapshot = await getDocs(qDeadlift)
+      qDeadliftSnapshot.forEach((doc) => {
+        currDeadWeight = Math.max(...doc.data().weight)
+        if (currDeadWeight >= 150) { this.cyan = ref(true) } else { this.cyan = ref(false) }
+      })
+      const qSquat = query(collection(db, 'fitnesstracker/' + userID + '/legs'), where('name', '==', 'Squat'), orderBy('date', 'desc'), limit(1))
+      const qSquatSnapshot = await getDocs(qSquat)
+      qSquatSnapshot.forEach((doc) => {
+        currSquatWeight = Math.max(...doc.data().weight)
+        if (currSquatWeight >= 100) { this.magenta = ref(true) } else { this.magenta = ref(false) }
+      })
     }
+  }
 })
 </script>

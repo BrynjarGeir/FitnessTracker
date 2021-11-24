@@ -20,15 +20,15 @@
         <q-btn @click="ex3"> Log Exercise </q-btn> <br>
 
         <h6 class='q-pa-sm'> Machine Crunch </h6>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n41"/></div></div>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w32"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n42"/></div></div>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w33"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n43"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w41"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n41"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w42"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n42"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w43"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n43"/></div></div>
         <q-btn @click="ex4"> Log Exercise </q-btn> <br>
         
         <h6 class='q-pa-sm'> Machine Torso Rotation </h6>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n51"/></div></div>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w32"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n52"/></div></div>
-            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w33"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n53"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w51"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n51"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w52"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n52"/></div></div>
+            <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w53"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n53"/></div></div>
         <q-btn @click="ex5"> Log Exercise </q-btn> <br>
 
 
@@ -39,6 +39,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
     name: 'PageIndex',
@@ -60,7 +61,9 @@ export default defineComponent({
 
     methods: {
         async ex1() {
-            await setDoc(doc(db, 'core', 'Wood-Chopper' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/core', 'Wood-Chopper' + Date.now()), {
                 name: 'Wood Chopper',
                 weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13)],
                 iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13)],
@@ -70,7 +73,9 @@ export default defineComponent({
         },
 
         async ex2() {
-            await setDoc(doc(db, 'core', 'Crunch' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/core', 'Crunch' + Date.now()), {
                 name: 'Crunch',
                 weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
                 iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
@@ -80,7 +85,9 @@ export default defineComponent({
         },
 
         async ex3() {
-            await setDoc(doc(db, 'core', 'Inverse-Crunch' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/core', 'Inverse-Crunch' + Date.now()), {
                 name: 'Inverse Crunch',
                 weight: [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33)],
                 iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33)],
@@ -90,7 +97,9 @@ export default defineComponent({
         },
 
         async ex4() {
-            await setDoc(doc(db, 'core', 'Machine-Crunch' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/core', 'Machine-Crunch' + Date.now()), {
                 name: 'Machine Crunch',
                 weight: [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43)],
                 iterations: [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
@@ -100,7 +109,9 @@ export default defineComponent({
         },
 
         async ex5() {
-            await setDoc(doc(db, 'core', 'Machine-Torso-Rotation' + Date.now()), {
+            const auth = getAuth()
+            const userID = auth.currentUser.uid 
+            await setDoc(doc(db, 'fitnesstracker/' + userID + '/core', 'Machine-Torso-Rotation' + Date.now()), {
                 name: 'Machine Torso Rotation',
                 weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53)],
                 iterations: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],

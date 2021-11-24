@@ -32,7 +32,7 @@
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
 import { setDoc, doc } from 'firebase/firestore'
-//import exercises from 'src/boot/firebase'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
   name: 'PageIndex',
@@ -52,7 +52,9 @@ export default defineComponent({
 
   methods: {
     async ex1() {
-      await setDoc(doc(db, 'triceps', 'Narrow-chest-press' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Narrow-chest-press' + Date.now()), {
           name: 'Narrow Chest Press',
           weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14)],
           iterattions:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14)],
@@ -64,7 +66,9 @@ export default defineComponent({
 
     },
     async ex2() {
-      await setDoc(doc(db, 'triceps', 'Cable-rope-tricep-pulldown' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Cable-rope-tricep-pulldown' + Date.now()), {
           name: 'Cable Rope Tricep Pulldown',
           weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
           iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
@@ -76,7 +80,9 @@ export default defineComponent({
 
     },
     async ex3() {
-      await setDoc(doc(db, 'triceps', 'Lying-tricep-extension' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Lying-tricep-extension' + Date.now()), {
           name: 'Lying Tricep Extension',
           weight:  [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33)],
           iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33)],
@@ -87,7 +93,9 @@ export default defineComponent({
       )
     },
     async ex4() {
-      await setDoc(doc(db, 'triceps', 'Dips-On-Bench' + Date.now()), {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Dips-On-Bench' + Date.now()), {
           name: 'Dips On Bench',
           weight:  [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43)],
           iterations: [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],

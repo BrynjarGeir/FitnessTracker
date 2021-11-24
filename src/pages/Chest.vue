@@ -29,9 +29,9 @@
     <q-btn @click="ex4"> Log exercise </q-btn> 
 
     <h6 class="q-mt-none"> Narrow Press Up </h6>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w51"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n51"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w52"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n52"/></div></div>
-    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w53"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n53"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n51"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n52"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n53"/></div></div>
     <q-btn @click="ex5"> Log exercise </q-btn> 
 
     <h6 class="q-mt-none"> Dumbbel Chest Press </h6>
@@ -69,8 +69,8 @@
 <script>
 import { defineComponent } from 'vue'
 import db from 'src/boot/firebase'
-import { collection, setDoc, onSnapshot, doc } from 'firebase/firestore'
-//import exercises from 'src/boot/firebase'
+import { setDoc, doc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default defineComponent({
   name: 'PageIndex',
@@ -80,7 +80,6 @@ export default defineComponent({
         w11: null, w12: null, w13: null, w14: null, w15: null,
         w21: null, w22: null, w23: null,
         w31: null, w32: null, w33: null,
-        w51: null, w52: null, w53: null,
         w61: null, w62: null, w63: null,
         w71: null, w72: null, w73: null,
         w81: null, w82: null, w83: null,
@@ -101,116 +100,134 @@ export default defineComponent({
 
   methods: {
     async ex1() {
-      await setDoc(doc(db, 'chest', 'Chest-Press' + Date.now()), {
-          name: 'Chest Press',
-          weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14), parseFloat(this.w15)],
-          iterations:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14), parseInt(this.n15)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Chest-Press' + Date.now()), {
+        name: 'Chest Press',
+        weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14), parseFloat(this.w15)],
+        iterations:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14), parseInt(this.n15)],
+        date: Date.now()
       }).then(
-          this.w11 = null, this.w12 = null, this.w13 = null, this.w14 = null, this.w15 = null,
+        this.w11 = null, this.w12 = null, this.w13 = null, this.w14 = null, this.w15 = null,
         this.n11 = null, this.n12 = null, this.n13 = null, this.n14 = null, this.n15 = null
       )
 
     },
     async ex2() {
-      await setDoc(doc(db, 'chest', 'Inclined-Chest-Press' + Date.now()), {
-          name: 'Inclined Chest Press',
-          weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Inclined-Chest-Press' + Date.now()), {
+        name: 'Inclined Chest Press',
+        weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
+        iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
+        date: Date.now()
       }).then(
-            this.w21 = null, this.w22 = null, this.w23 = null,
-            this.n21 = null, this.n22 = null, this.n23 = null
+        this.w21 = null, this.w22 = null, this.w23 = null,
+        this.n21 = null, this.n22 = null, this.n23 = null
       )
 
     },
     async ex3() {
-      await setDoc(doc(db, 'chest', 'Cable-Fly' + Date.now()), {
-          name: 'Cable Fly',
-          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInte(this.n21), parseInt(this.n22), parseInt(this.n23)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Cable-Fly' + Date.now()), {
+        name: 'Cable Fly',
+        weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
+        iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
+        date: Date.now()
       }).then(
-            this.w31 = null, this.w32 = null, this.w33 = null,
-            this.n31 = null, this.n32 = null, this.n33 = null
+        this.w31 = null, this.w32 = null, this.w33 = null,
+        this.n31 = null, this.n32 = null, this.n33 = null
       )
 
     },
     async ex4() {
-      await setDoc(doc(db, 'chest', 'Press-Up' + Date.now()), {
-          name: 'Press Up',
-          iterations:  [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Press-Up' + Date.now()), {
+        name: 'Press Up',
+        iterations:  [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43)],
+        date: Date.now()
       }).then(
-          this.n41 = null, this.n41 = null, this.n43 = null   
+        this.n41 = null, this.n42 = null, this.n43 = null   
       )
     },
-    async ex5() {    
-      await setDoc(doc(db, 'chest', 'Narrow-Press-Up' + Date.now()), {
-          name: 'Narrow Press Up',
-          weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53)],
-          iterattions: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],
-          date: Date.now()
+    async ex5() {  
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Narrow-Press-Up' + Date.now()), {
+        name: 'Narrow Press Up',
+        iterations: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53)],
+        date: Date.now()
       }).then(
-          this.w51 = null, this.w52 = null, this.w53 = null,
-          this.n51 = null, this.n52 = null, this.n53 = null          
+        this.n51 = null, this.n52 = null, this.n53 = null          
       )
 
     },
     async ex6() {
-      setDoc(doc(db, 'chest', 'Dumbbell-Chest-Press' + Date.now()), {
-          name: 'Dumbbell Chest Press',
-          weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
-          iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Dumbbell-Chest-Press' + Date.now()), {
+        name: 'Dumbbell Chest Press',
+        weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63)],
+        iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63)],
+        date: Date.now()
       }).then(
-            this.w61 = null, this.w62 = null, this.w63 = null,
-            this.n61 = null, this.n62 = null, this.n63 = null
+        this.w61 = null, this.w62 = null, this.w63 = null,
+        this.n61 = null, this.n62 = null, this.n63 = null
       )
 
     },
     async ex7() {
-      await setDoc(doc(db, 'chest', 'Dumbbell-Chest-Fly' + Date.now()), {
-          name: 'Dumbbell Chest Fly',
-          weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73)],
-          iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Dumbbell-Chest-Fly' + Date.now()), {
+        name: 'Dumbbell Chest Fly',
+        weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73)],
+        iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73)],
+        date: Date.now()
       }).then(
-            this.w71 = null, this.w72 = null, this.w73 = null,
-            this.n71 = null, this.n72 = null, this.n73 = null          
+        this.w71 = null, this.w72 = null, this.w73 = null,
+        this.n71 = null, this.n72 = null, this.n73 = null          
       )
     },
     async ex8() {
-      await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Press' + Date.now()), {
-          name: 'Inclined Dumbbell Chest Press',
-          weight: [parseFloat(this.w81), parseFloat(this.w82), parseFloat(this.w83)],
-          iterations: [parseInt(this.n81), parseInt(this.n82), parseInt(this.n83)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Inclined-Dumbbell-Chest-Press' + Date.now()), {
+        name: 'Inclined Dumbbell Chest Press',
+        weight: [parseFloat(this.w81), parseFloat(this.w82), parseFloat(this.w83)],
+        iterations: [parseInt(this.n81), parseInt(this.n82), parseInt(this.n83)],
+        date: Date.now()
       }).then(
-            this.w81 = null, this.w82 = null, this.w83 = null,
-            this.n81 = null, this.n82 = null, this.n83 = null          
+        this.w81 = null, this.w82 = null, this.w83 = null,
+        this.n81 = null, this.n82 = null, this.n83 = null          
       )
     },
     async ex9() {
-      await setDoc(doc(db, 'chest', 'Inclined-Dumbbell-Chest-Fly' + Date.now()), {
-          name: 'Inclined Dumbbell Chest Fly',
-          weight: [parseFloat(this.w91), parseFloat(this.w92), parseFloat(this.w93)],
-          iterations: [parseInt(this.n91), parseInt(this.n92), parseInt(this.n93)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Inclined-Dumbbell-Chest-Fly' + Date.now()), {
+        name: 'Inclined Dumbbell Chest Fly',
+        weight: [parseFloat(this.w91), parseFloat(this.w92), parseFloat(this.w93)],
+        iterations: [parseInt(this.n91), parseInt(this.n92), parseInt(this.n93)],
+        date: Date.now()
       }).then(
-            this.w91 = null, this.w92 = null, this.w93 = null,
-            this.n91 = null, this.n92 = null, this.n93 = null          
+        this.w91 = null, this.w92 = null, this.w93 = null,
+        this.n91 = null, this.n92 = null, this.n93 = null          
       )
     },
     async ex10() {
-      await setDoc(doc(db, 'chest', 'Machine-Fly' + Date.now()), {
-          name: 'Machine Fly',
-          weight: [parseFloat(this.w101), parseFloat(this.w102), parseFloat(this.w103)],
-          iterations: [parseInt(this.n101), parseInt(this.n102), parseInt(this.n103)],
-          date: Date.now()
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/chest', 'Machine-Fly' + Date.now()), {
+        name: 'Machine Fly',
+        weight: [parseFloat(this.w101), parseFloat(this.w102), parseFloat(this.w103)],
+        iterations: [parseInt(this.n101), parseInt(this.n102), parseInt(this.n103)],
+        date: Date.now()
       }).then(
-            this.w101 = null, this.w102 = null, this.w103 = null,
-            this.n101 = null, this.n102 = null, this.n103 = null          
+        this.w101 = null, this.w102 = null, this.w103 = null,
+        this.n101 = null, this.n102 = null, this.n103 = null          
       )
     }               
   }
