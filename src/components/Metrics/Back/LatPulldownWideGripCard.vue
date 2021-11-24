@@ -7,7 +7,7 @@
         </q-avatar>
       </q-item>
       <q-card-actions align="right" class="q-gutter-md">
-        <q-btn to='/Metrics/Back/LatPullDown'> Lat Pulldown Exercise Analytics </q-btn>
+        <q-btn to='/Metrics/Back/LatPullDown'> Lat Pulldown Wide Grip Exercise Analytics </q-btn>
       </q-card-actions>
     </q-card>
   </div>
@@ -17,7 +17,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: 'DeadliftCard'
+    name: 'LatPulldownWideGripCard'
 })
 </script>
 

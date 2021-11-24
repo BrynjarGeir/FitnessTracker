@@ -17,6 +17,7 @@
 import Chart from 'chart.js'
 import db from 'src/boot/firebase'
 import { query, collection, getDocs } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 export default {
   data () {
@@ -29,8 +30,9 @@ export default {
   methods: {
     async createChart (chartId) {
       const ctx = document.getElementById(chartId)
-      const q = query(collection(db, 'weight'))
-      const qSnapShot = await getDocs(q)
+      const auth = getAuth()
+      const userID = auth.currentUser.uid
+      const q = query(collection(db, 'fitnesstracker/' + userID + '/weight'))
       const dates = []
       const totalW = []
       qSnapShot.forEach((doc) => {
