@@ -13,6 +13,7 @@ const routes = [
       { path: '/WeightFat', component: () => import('pages/WeightFat.vue'), meta: {requiresAuth: true} },
       { path: '/Chest', component: () => import('pages/Chest.vue'), meta: {requiresAuth: true} },
       { path: '/Core', component: () => import('pages/Core.vue'), meta: {requiresAuth: true} },
+      { path: '/Goals', component: () => import('pages/Goals.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics', component: () => import('pages/Metrics/Metrics.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics/Legs', component: () => import('pages/Metrics/Legs.vue'), meta: {requiresAuth: true} },
       { path: '/Metrics/Back', component: () => import('pages/Metrics/Back.vue'), meta: {requiresAuth: true} },

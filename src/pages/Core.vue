@@ -1,4 +1,4 @@
-<template>
+ <template>
     <q-page class='q-pa-lg'>
         <h5 class='q-mt-none'> Endurance Exercises </h5>
         <h6 class='q-pa-sm'> Wood Chopper </h6>

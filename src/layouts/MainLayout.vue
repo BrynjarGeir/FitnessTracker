@@ -15,6 +15,8 @@
           <q-btn to='/'>Fitness Tracker</q-btn>
         </q-toolbar-title>
 
+        <!--<q-btn @click="updateInfo"> Update Your Profile Info </q-btn>-->
+
         <q-btn @click="signOut">Log Out</q-btn>
       </q-toolbar>
     </q-header>
@@ -114,6 +116,16 @@
 
               <q-item-section>
                 Metrics and data
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-ripple to='/Goals'>
+              <q-item-section avatar>
+                <q-icon name='sports_score'/>
+              </q-item-section>
+
+              <q-item-section>
+                Goals
               </q-item-section>
             </q-item>
 
