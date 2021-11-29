@@ -12,6 +12,7 @@
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w31"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n31"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w32"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n32"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w33"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n33"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w34"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n34"/></div></div>
     <q-btn @click="ex3"> Log exercise </q-btn> <br> 
 
     <h6 class="q-mt-none"> Standing Dumbbell Curl </h6>
@@ -31,6 +32,13 @@
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w62"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n62"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w63"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n63"/></div></div>
     <q-btn @click="ex6"> Log exercise </q-btn> <br> 
+
+    <h6 class="q-mt-none"> EZ-bar curl </h6>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w71"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n71"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w72"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n72"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w73"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n73"/></div></div>
+    <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w74"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n74"/></div></div>
+    <q-btn @click="ex7"> Log exercise </q-btn> <br> 
   </q-page>
 </template>
 
@@ -45,15 +53,17 @@ export default defineComponent({
   data() {
     return {
         w11: null, w12: null, w13: null, w14: null,
-        w31: null, w32: null, w33: null,
+        w31: null, w32: null, w33: null, w34: null,
         w41: null, w42: null, w43: null,
         w51: null, w52: null, w53: null,
         w61: null, w62: null, w63: null,
+        w71: null, w72: null, w73: null, w74: null,
         n11: null, n12: null, n13: null, n14: null,
-        n31: null, n32: null, n33: null,
+        n31: null, n32: null, n33: null, n34: null,
         n41: null, n42: null, n43: null,
         n51: null, n52: null, n53: null,
-        n61: null, n62: null, n63: null
+        n61: null, n62: null, n63: null,
+        n71: null, n72: null, n73: null, n74: null
     }
   },
 
@@ -77,8 +87,8 @@ export default defineComponent({
       const userID = auth.currentUser.uid 
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'Hammer-Curl' + Date.now()), {
           name: 'Hammer Curl',
-          weight:  [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23)],
-          iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23)],
+          weight:  [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33), parseFloat(this.w34)],
+          iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33), parseInt(this.n34)],
           date: Date.now()
       }).then(
             this.w31 = null, this.w32 = null, this.w33 = null,
@@ -125,8 +135,21 @@ export default defineComponent({
             this.w61 = null, this.w62 = null, this.w63 = null,
             this.n61 = null, this.n62 = null, this.n63 = null
       )
+    },
+    async ex7() {
+      const auth = getAuth()
+      const userID = auth.currentUser.uid 
+      await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'EZ-Barbell-Curl' + Date.now()), {
+          name: 'EZ Barbell Curl',
+          weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73), parseFloat(this.w74)],
+          iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73), parsesInt(this.n74)],
+          date: Date.now()
+      }).then(
+            this.w71 = null, this.w72 = null, this.w73 = null, this.w74 = null,
+            this.n71 = null, this.n72 = null, this.n73 = null, this.n74 = null
+      )
 
-    }     
+    }      
   }
 })
 </script>

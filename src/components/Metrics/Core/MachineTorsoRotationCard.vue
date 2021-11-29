@@ -8,7 +8,7 @@
       </q-item>
 
       <q-card-actions align="right" class="q-gutter-md">
-        <q-btn to='/Metrics/Core/TorsoRotation'> Machine Torso Rotation Exercise Analytics </q-btn>
+        <q-btn to='/Metrics/Core/MachineTorsoRotation'> Machine Torso Rotation Exercise Analytics </q-btn>
       </q-card-actions>
     </q-card>
   </div>

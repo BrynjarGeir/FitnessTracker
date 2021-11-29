@@ -26,8 +26,7 @@ onAuthStateChanged(auth, (user) => {
   }
 })
 
-setPersistence(auth, browserSessionPersistence)
-
+//setPersistence(auth, browserSessionPersistence)
 const db = getFirestore(app)
 
 export default db

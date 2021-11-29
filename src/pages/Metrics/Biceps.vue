@@ -15,6 +15,9 @@
     <div class='column'>
       <ZottmanCurlCard/>
     </div>
+    <div class='column'>
+      <EZBarbellCurlCard/>
+    </div>
   </div>
 </template>
 
@@ -25,12 +28,13 @@ import HammerCurlCard from '../../components/Metrics/Biceps/HammerCurlCard'
 import InclinedDumbbellCurlCard from '../../components/Metrics/Biceps/InclinedDumbbellCurlCard'
 import StandingDumbbellCurlCard from '../../components/Metrics/Biceps/StandingDumbbellCurlCard'
 import ZottmanCurlCard from '../../components/Metrics/Biceps/ZottmanCurlCard'
+import EZBarbellCurlCard from '../../components/Metrics/Biceps/EZBarbellCurlCard'
 
 
 export default defineComponent({
   name: 'BicepsMetrics',
   components: {
-    BarbellCurlCard, HammerCurlCard, InclinedDumbbellCurlCard, StandingDumbbellCurlCard, ZottmanCurlCard
+    BarbellCurlCard, HammerCurlCard, InclinedDumbbellCurlCard, StandingDumbbellCurlCard, ZottmanCurlCard, EZBarbellCurlCard
   }
 })
 </script>

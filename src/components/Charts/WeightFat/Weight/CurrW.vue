@@ -33,9 +33,10 @@ export default {
       const auth = getAuth()
       const userID = auth.currentUser.uid
       const q = query(collection(db, 'fitnesstracker/' + userID + '/weight'))
+      const qSnapshot = await getDocs(q)
       const dates = []
       const totalW = []
-      qSnapShot.forEach((doc) => {
+      qSnapshot.forEach((doc) => {
         let currDate = new Date(doc.data().date)
         dates.push(currDate.getDate() + '/' + currDate.getMonth() + '/' + currDate.getFullYear().toString())
         totalW.push(doc.data().weight)
