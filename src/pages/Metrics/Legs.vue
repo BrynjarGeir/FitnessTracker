@@ -34,7 +34,7 @@ import BulgarianSplitSquatCard from '../../components/Metrics/Legs/BulgarianSpli
 import WalkingLungeCard from '../../components/Metrics/Legs/WalkingLungeCard'
 import KettlebellSquatCard from '../../components/Metrics/Legs/KettlebellSquatCard'
 import MachineCalfPressCard from '../../components/Metrics/Legs/MachineCalfPressCard'
-import MachineLegPressCard from '../../components/Metrics/Legs/MachinelegPressCard'
+import MachineLegPressCard from '../../components/Metrics/Legs/MachineLegPressCard'
 import LungeWPlateCard from '../../components/Metrics/Legs/LungeWPlateCard'
 import StiffDeadliftCard from '../../components/Metrics/Legs/StiffDeadliftCard'
 

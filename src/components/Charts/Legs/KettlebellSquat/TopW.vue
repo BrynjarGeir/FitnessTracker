@@ -3,7 +3,7 @@
     <q-card-section class="bg-blue-grey-8">
       <div class="row items-center no-wrap">
         <div class="col">
-          <div class="text-h6 text-white text-center">Top weight of bulgarian split squat exercises</div>
+          <div class="text-h6 text-white text-center">Top weight of kettlebell squat exercises</div>
         </div>
       </div>
     </q-card-section>

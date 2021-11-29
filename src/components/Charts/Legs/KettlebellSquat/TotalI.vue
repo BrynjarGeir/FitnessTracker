@@ -3,7 +3,7 @@
     <q-card-section class="bg-blue-grey-8">
       <div class="row items-center no-wrap">
         <div class="col">
-          <div class="text-h6 text-white text-center">Total iterations of bulgarian split squat exercises</div>
+          <div class="text-h6 text-white text-center">Total iterations of kettlebell squat exercises</div>
         </div>
       </div>
     </q-card-section>

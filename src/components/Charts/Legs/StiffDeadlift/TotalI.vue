@@ -3,7 +3,7 @@
     <q-card-section class="bg-blue-grey-8">
       <div class="row items-center no-wrap">
         <div class="col">
-          <div class="text-h6 text-white text-center">Total iterations of bulgarian split squat exercises</div>
+          <div class="text-h6 text-white text-center">Total iterations of stiff deadlift exercises</div>
         </div>
       </div>
     </q-card-section>
@@ -32,7 +32,7 @@ export default {
       const ctx = document.getElementById(chartId)
       const auth = getAuth()
       const userID = auth.currentUser.uid
-      const q = query(collection(db, 'fitnesstracker/' + userID + '/legs'), where('name', '==', 'Bulgarian Split Squat'))
+      const q = query(collection(db, 'fitnesstracker/' + userID + '/legs'), where('name', '==', 'Stiff Deadlift'))
       const qSnapShot = await getDocs(q)
       const dates = []
       const totalI = []
