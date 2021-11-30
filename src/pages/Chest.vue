@@ -34,7 +34,7 @@
     <div class='row'><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n53"/></div></div>
     <q-btn @click="ex5"> Log exercise </q-btn> 
 
-    <h6 class="q-mt-none"> Dumbbel Chest Press </h6>
+    <h6 class="q-mt-none"> Dumbbell Chest Press </h6>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w61"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n61"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w62"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n62"/></div></div>
     <div class='row'><div class='col'><q-input type="number" placeholder="Weight of exercise" v-model="w63"/></div><div class='col'><q-input type="number" placeholder="Number of iterations" v-model="n63"/></div></div>
