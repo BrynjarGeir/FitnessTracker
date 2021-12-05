@@ -26,7 +26,7 @@ export default defineComponent({
       const auth = getAuth()
       const uid = auth.currentUser.uid
       await setDoc(doc(db, 'fitnesstracker/' + uid + '/goals', 'Goal Weight'), {
-        weight: this.GoalWeight,
+        weight: parseInt(this.GoalWeight),
         date: Date.now()
       }).then(this.GoalWeight = ref(''))
     },
@@ -34,7 +34,7 @@ export default defineComponent({
       const auth = getAuth()
       const uid = auth.currentUser.uid
       await setDoc(doc(db, 'fitnesstracker/' + uid + '/goals', 'Goal Fat Percentage'), {
-        per: this.GoalFatPer,
+        per: parseInt(this.GoalFatPer),
         date: Date.now()
       }).then(this.GoalFatPer = ref(''))
     },
@@ -42,7 +42,7 @@ export default defineComponent({
       const auth = getAuth()
       const uid = auth.currentUser.uid
       await setDoc(doc(db, 'fitnesstracker/' + uid + '/goals', 'Goal Bench'), {
-        weight: this.GoalBench,
+        weight: parseInt(this.GoalBench),
         date: Date.now()
       }).then(this.GoalBench = ref(''))
     },
@@ -50,7 +50,7 @@ export default defineComponent({
       const auth = getAuth()
       const uid = auth.currentUser.uid
       await setDoc(doc(db, 'fitnesstracker/' + uid + '/goals', 'Goal Deadlift'), {
-        weight: this.GoalDeadlift,
+        weight: parseInt(this.GoalDeadlift),
         date: Date.now()
       }).then(this.GoalDeadlift = ref(''))
     },
@@ -58,7 +58,7 @@ export default defineComponent({
       const auth = getAuth()
       const uid = auth.currentUser.uid
       await setDoc(doc(db, 'fitnesstracker/' + uid + '/goals', 'Goal Squat'), {
-        weight: this.GoalSquat,
+        weight: parseInt(this.GoalSquat),
         date: Date.now()
       }).then(this.GoalSquat = ref(''))
 
