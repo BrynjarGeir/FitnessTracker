@@ -103,10 +103,17 @@ export default defineComponent({
         async ex1() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNan(this.w12)){weights.push(parseFloat(this.w12))}
+            if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNan(this.w14)){weights.push(parseFloat(this.w14))};
+            if(!isNan(this.w15)){weights.push(this.w15)}
+            if(!isNaN(this.n11)){iters.push(parseInt(this.n11))}; if(!isNan(this.n12)){iters.push(parseInt(this.n12))}
+            if(!isNaN(this.n13)){iters.push(parseInt(this.n13))}; if(!isNan(this.n14)){iters.push(parseInt(this.n14))};
+            if(!isNan(this.n15)){iters.push(this.n15)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'Squat' + Date.now()), {
                 name: 'Squat',
-                weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14), parseFloat(this.w15)],
-                iterations: [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14), parseInt(this.n15)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w11 = null, this.w12 = null, this.w13 = null, this.w14 = null, this.w15 = null,
@@ -117,10 +124,17 @@ export default defineComponent({
         async ex2() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNan(this.w22)){weights.push(parseFloat(this.w22))}
+            if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNan(this.w24)){weights.push(parseFloat(this.w24))};
+            if(!isNan(this.w25)){weights.push(this.w25)}
+            if(!isNaN(this.n21)){iters.push(parseInt(this.n21))}; if(!isNan(this.n22)){iters.push(parseInt(this.n22))}
+            if(!isNaN(this.n23)){iters.push(parseInt(this.n23))}; if(!isNan(this.n24)){iters.push(parseInt(this.n24))};
+            if(!isNan(this.n25)){iters.push(this.n25)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'BulgSplitSquat' + Date.now()), {
                 name: 'Bulgarian Split Squat',
-                weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23), parseFloat(this.w24), parseFloat(this.w25)],
-                iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24), parseInt(this.n25)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w21 = null, this.w22 = null, this.w23 = null, this.w24 = null, this.w25 = null,
@@ -132,10 +146,17 @@ export default defineComponent({
         async ex3() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNan(this.w32)){weights.push(parseFloat(this.w32))}
+            if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNan(this.w34)){weights.push(parseFloat(this.w34))};
+            if(!isNan(this.w35)){weights.push(this.w35)}
+            if(!isNaN(this.n31)){iters.push(parseInt(this.n31))}; if(!isNan(this.n32)){iters.push(parseInt(this.n32))}
+            if(!isNaN(this.n33)){iters.push(parseInt(this.n33))}; if(!isNan(this.n34)){iters.push(parseInt(this.n34))};
+            if(!isNan(this.n35)){iters.push(this.n35)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'WalkingLunge' + Date.now()), {
                 name: 'Walking Lunge',
-                weight: [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33), parseFloat(this.w34), parseFloat(this.w35)],
-                iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33), parseInt(this.n34), parseFloat(this.n35)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w31 = null, this.w32 = null, this.w33 = null, this.w34 = null, this.w35 = null,
@@ -146,10 +167,17 @@ export default defineComponent({
         async ex4() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w41)){weights.push(parseFloat(this.w41))}; if(!isNan(this.w42)){weights.push(parseFloat(this.w42))}
+            if(!isNaN(this.w43)){weights.push(parseFloat(this.w43))}; if(!isNan(this.w44)){weights.push(parseFloat(this.w44))};
+            if(!isNan(this.w45)){weights.push(this.w45)}
+            if(!isNaN(this.n41)){iters.push(parseInt(this.n41))}; if(!isNan(this.n42)){iters.push(parseInt(this.n42))}
+            if(!isNaN(this.n43)){iters.push(parseInt(this.n43))}; if(!isNan(this.n44)){iters.push(parseInt(this.n44))};
+            if(!isNan(this.n45)){iters.push(this.n45)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'StiffDeadlift' + Date.now()), {
                 name: 'Stiff Deadlift',
-                weight: [parseFloat(this.w41), parseFloat(this.w42), parseFloat(this.w43), parseFloat(this.w44), parseFloat(this.w45)],
-                iterations: [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43), parseInt(this.n44), parseInt(this.n45)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w41 = null, this.w42 = null, this.w43 = null, this.w44 = null, this.w45 = null,
@@ -160,10 +188,17 @@ export default defineComponent({
         async ex5() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w51)){weights.push(parseFloat(this.w51))}; if(!isNan(this.w52)){weights.push(parseFloat(this.w52))}
+            if(!isNaN(this.w53)){weights.push(parseFloat(this.w53))}; if(!isNan(this.w54)){weights.push(parseFloat(this.w54))};
+            if(!isNan(this.w55)){weights.push(this.w55)}
+            if(!isNaN(this.n51)){iters.push(parseInt(this.n51))}; if(!isNan(this.n52)){iters.push(parseInt(this.n52))}
+            if(!isNaN(this.n53)){iters.push(parseInt(this.n53))}; if(!isNan(this.n54)){iters.push(parseInt(this.n54))};
+            if(!isNan(this.n55)){iters.push(this.n55)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'LungeWPlate' + Date.now()), {
                 name: 'Lunge With Plate',
-                weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53), parseFloat(this.w54), parseFloat(this.w55)],
-                iterations: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53), parseInt(this.n54), parseInt(this.n55)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w51 = null, this.w52 = null, this.w53 = null, this.w54 = null, this.w55 = null,
@@ -174,10 +209,17 @@ export default defineComponent({
         async ex6() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w61)){weights.push(parseFloat(this.w61))}; if(!isNan(this.w62)){weights.push(parseFloat(this.w62))}
+            if(!isNaN(this.w63)){weights.push(parseFloat(this.w63))}; if(!isNan(this.w64)){weights.push(parseFloat(this.w64))};
+            if(!isNan(this.w65)){weights.push(this.w65)}
+            if(!isNaN(this.n61)){iters.push(parseInt(this.n61))}; if(!isNan(this.n62)){iters.push(parseInt(this.n62))}
+            if(!isNaN(this.n63)){iters.push(parseInt(this.n63))}; if(!isNan(this.n64)){iters.push(parseInt(this.n64))};
+            if(!isNan(this.n65)){iters.push(this.n65)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'KettlebellSquat' + Date.now()), {
                 name: 'Squat With Kettlebell',
-                weight: [parseFloat(this.w61), parseFloat(this.w62), parseFloat(this.w63), parseFloat(this.w64), parseFloat(this.w65)],
-                iterations: [parseInt(this.n61), parseInt(this.n62), parseInt(this.n63), parseInt(this.n64), parseInt(this.n65)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w61 = null, this.w62 = null, this.w63 = null, this.w64 = null, this.w65 = null,
@@ -188,10 +230,17 @@ export default defineComponent({
         async ex7() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w71)){weights.push(parseFloat(this.w71))}; if(!isNan(this.w72)){weights.push(parseFloat(this.w72))}
+            if(!isNaN(this.w73)){weights.push(parseFloat(this.w73))}; if(!isNan(this.w74)){weights.push(parseFloat(this.w74))};
+            if(!isNan(this.w75)){weights.push(this.w75)}
+            if(!isNaN(this.n71)){iters.push(parseInt(this.n71))}; if(!isNan(this.n72)){iters.push(parseInt(this.n72))}
+            if(!isNaN(this.n73)){iters.push(parseInt(this.n73))}; if(!isNan(this.n74)){iters.push(parseInt(this.n74))};
+            if(!isNan(this.n75)){iters.push(this.n75)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'MachineLegPress' + Date.now()), {
                 name: 'Machine Leg Press',
-                weight: [parseFloat(this.w71), parseFloat(this.w72), parseFloat(this.w73), parseFloat(this.w74), parseFloat(this.w75)],
-                iterations: [parseInt(this.n71), parseInt(this.n72), parseInt(this.n73), parseInt(this.n74), parseInt(this.n75)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w71 = null, this.w72 = null, this.w73 = null, this.w74 = null, this.w75 = null,
@@ -202,10 +251,17 @@ export default defineComponent({
         async ex8() {
             const auth = getAuth()
             const userID = auth.currentUser.uid
+            weights = []; iters = []
+            if(!isNaN(this.w81)){weights.push(parseFloat(this.w81))}; if(!isNan(this.w82)){weights.push(parseFloat(this.w82))}
+            if(!isNaN(this.w83)){weights.push(parseFloat(this.w83))}; if(!isNan(this.w84)){weights.push(parseFloat(this.w84))};
+            if(!isNan(this.w85)){weights.push(this.w85)}
+            if(!isNaN(this.n81)){iters.push(parseInt(this.n81))}; if(!isNan(this.n82)){iters.push(parseInt(this.n82))}
+            if(!isNaN(this.n83)){iters.push(parseInt(this.n83))}; if(!isNan(this.n84)){iters.push(parseInt(this.n84))};
+            if(!isNan(this.n85)){iters.push(this.n85)}
             await setDoc(doc(db, 'fitnesstracker/' + userID + '/legs', 'MachineCalfPress' + Date.now()), {
                 name: 'Machine Calf Press',
-                weight: [parseFloat(this.w81), parseFloat(this.w82), parseFloat(this.w83), parseFloat(this.w84), parseFloat(this.w85)],
-                iterations: [parseInt(this.n81), parseInt(this.n82), parseInt(this.n83), parseInt(this.n84), parseFloat(this.n85)],
+                weight: weights,
+                iterations: iters,
                 date: Date.now()
             }).then(
                 this.w81 = null, this.w82 = null, this.w83 = null, this.w84 = null, this.w85 = null,

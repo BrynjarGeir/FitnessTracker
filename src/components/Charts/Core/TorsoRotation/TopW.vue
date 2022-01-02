@@ -38,15 +38,16 @@ export default {
       const topW = []
       qSnapShot.forEach((doc) => {
         let currDate = new Date(doc.data().date)
-        dates.push(currDate.getDate() + '/' + currDate.getMonth() + '/' + currDate.getFullYear().toString())
+        const month = parseInt(currDate.getMonth()) + 1
+        dates.push(currDate.getDate() + '/' + month + '/' + currDate.getFullYear().toString())
         topW.push(Math.max(...doc.data().weight))
       })
       const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: dates,//[1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+          labels: dates.slice(-8),
           datasets: [{
-            data: topW,//[86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+            data: topW.slice(-8),
             label: 'Top Weight',
             borderColor: '#3e95cd',
             fill: false,

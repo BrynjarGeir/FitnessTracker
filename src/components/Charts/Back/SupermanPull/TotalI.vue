@@ -37,7 +37,8 @@ export default {
       const totalI = []
       qSnapShot.forEach((doc) => {
         let currDate = new Date(doc.data().date)
-        dates.push(currDate.getDate() + '/' + currDate.getMonth() + '/' + currDate.getFullYear().toString())
+        const month = parseInt(currDate.getMonth()) +  1
+        dates.push(currDate.getDate() + '/' + month + '/' + currDate.getFullYear().toString())
         totalI.push(doc.data().iterations.reduce((a,b) => a + b,0))
       })
       const myChart = new Chart(ctx, {

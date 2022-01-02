@@ -37,15 +37,16 @@ export default {
       const totalI = []
       qSnapShot.forEach((doc) => {
         let currDate = new Date(doc.data().date)
-        dates.push(currDate.getDate() + '/' + currDate.getMonth() + '/' + currDate.getFullYear().toString())
+        const month = parseInt(currDate.getMonth()) + 1
+        dates.push(currDate.getDate() + '/' + month + '/' + currDate.getFullYear().toString())
         totalI.push(doc.data().iterations.reduce((a,b) => a+b,0))
       })
       const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: dates,//[1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+          labels: dates.slice(-8),
           datasets: [{
-            data: totalI,//[86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+            data: totalI.slice(-8),
             label: 'Total Iterations',
             borderColor: '#3e95cd',
             fill: false,

@@ -70,10 +70,17 @@ export default defineComponent({
     async ex1() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
+      weights = []; iters = []
+      if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNan(this.w12)){weights.push(parseFloat(this.w12))}
+      if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNan(this.w14)){weights.push(parseFloat(this.w14))};
+      if(!isNan(this.w15)){weights.push(this.w15)}
+      if(!isNaN(this.n11)){iters.push(parseInt(this.n11))}; if(!isNan(this.n12)){iters.push(parseInt(this.n12))}
+      if(!isNaN(this.n13)){iters.push(parseInt(this.n13))}; if(!isNan(this.n14)){iters.push(parseInt(this.n14))};
+      if(!isNan(this.n15)){iters.push(this.n15)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Narrow-Chest-Press' + Date.now()), {
         name: 'Narrow Chest Press',
-        weight: [parseFloat(this.w11), parseFloat(this.w12), parseFloat(this.w13), parseFloat(this.w14), parseFloat(this.w15)],
-        iterattions:  [parseInt(this.n11), parseInt(this.n12), parseInt(this.n13), parseInt(this.n14), parseInt(this.n15)],
+        weight: weights,
+        iterattions: iters,
         date: Date.now()
       }).then(
         this.w11 = null, this.w12 = null, this.w13 = null, this.w14 = null, this.w15 = null,
@@ -84,10 +91,17 @@ export default defineComponent({
     async ex2() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
+      weights = []; iters = []
+      if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNan(this.w22)){weights.push(parseFloat(this.w22))}
+      if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNan(this.w24)){weights.push(parseFloat(this.w24))};
+      if(!isNan(this.w25)){weights.push(this.w25)}
+      if(!isNaN(this.n21)){iters.push(parseInt(this.n21))}; if(!isNan(this.n22)){iters.push(parseInt(this.n22))}
+      if(!isNaN(this.n23)){iters.push(parseInt(this.n23))}; if(!isNan(this.n24)){iters.push(parseInt(this.n24))};
+      if(!isNan(this.n25)){iters.push(this.n25)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Cable-Rope-Tricep-Pulldown' + Date.now()), {
         name: 'Cable Rope Tricep Pulldown',
-        weight: [parseFloat(this.w21), parseFloat(this.w22), parseFloat(this.w23), parseFloat(this.w24), parseFloat(this.w25)],
-        iterations: [parseInt(this.n21), parseInt(this.n22), parseInt(this.n23), parseInt(this.n24), parseInt(this.n25)],
+        weight: weights,
+        iterations: iters,
         date: Date.now()
       }).then(
         this.w21 = null, this.w22 = null, this.w23 = null, this.w24 = null, this.w25 = null,
@@ -98,10 +112,17 @@ export default defineComponent({
     async ex3() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
+      weights = []; iters = []
+      if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNan(this.w32)){weights.push(parseFloat(this.w32))}
+      if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNan(this.w34)){weights.push(parseFloat(this.w34))};
+      if(!isNan(this.w35)){weights.push(this.w35)}
+      if(!isNaN(this.n31)){iters.push(parseInt(this.n31))}; if(!isNan(this.n32)){iters.push(parseInt(this.n32))}
+      if(!isNaN(this.n33)){iters.push(parseInt(this.n33))}; if(!isNan(this.n34)){iters.push(parseInt(this.n34))};
+      if(!isNan(this.n35)){iters.push(this.n35)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Lying-Tricep-Extension' + Date.now()), {
         name: 'Lying Tricep Extension',
-        weight:  [parseFloat(this.w31), parseFloat(this.w32), parseFloat(this.w33), parseFloat(this.w34), parseFloat(this.w35)],
-        iterations: [parseInt(this.n31), parseInt(this.n32), parseInt(this.n33), parseInt(this.n34), parseInt(this.n35)],
+        weight: weights,
+        iterations: iters,
         date: Date.now()
       }).then(
         this.w31 = null, this.w32 = null, this.w33 = null, this.w34 = null, this.w35 = null,
@@ -111,9 +132,13 @@ export default defineComponent({
     async ex4() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
+      iters = []
+      if(!isNaN(this.n41)){iters.push(parseInt(this.n41))}; if(!isNan(this.n42)){iters.push(parseInt(this.n42))}
+      if(!isNaN(this.n43)){iters.push(parseInt(this.n43))}; if(!isNan(this.n44)){iters.push(parseInt(this.n44))};
+      if(!isNan(this.n45)){iters.push(this.n45)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Dips-On-Bench' + Date.now()), {
         name: 'Dips On Bench',
-        iterations: [parseInt(this.n41), parseInt(this.n42), parseInt(this.n43), parseInt(this.n44), parseInt(this.n45)],
+        iterations: iters,
         date: Date.now()
       }).then(
         this.n41 = null, this.n42 = null, this.n43 = null, this.n44 = null, this.n45 = null
@@ -122,10 +147,17 @@ export default defineComponent({
     async ex5() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
+      weights = []; iters = []
+      if(!isNaN(this.w51)){weights.push(parseFloat(this.w51))}; if(!isNan(this.w52)){weights.push(parseFloat(this.w52))}
+      if(!isNaN(this.w53)){weights.push(parseFloat(this.w53))}; if(!isNan(this.w54)){weights.push(parseFloat(this.w54))};
+      if(!isNan(this.w55)){weights.push(this.w55)}
+      if(!isNaN(this.n51)){iters.push(parseInt(this.n51))}; if(!isNan(this.n52)){iters.push(parseInt(this.n52))}
+      if(!isNaN(this.n53)){iters.push(parseInt(this.n53))}; if(!isNan(this.n54)){iters.push(parseInt(this.n54))};
+      if(!isNan(this.n55)){iters.push(this.n55)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Standing-Overhead-Cable-Tricep-Extension' + Date.now()), {
         name: 'Standing Overhead Cable Tricep Extension',
-        weight: [parseFloat(this.w51), parseFloat(this.w52), parseFloat(this.w53), parseFloat(this.w54), parseFloat(this.w55)],
-        iterations: [parseInt(this.n51), parseInt(this.n52), parseInt(this.n53), parseInt(this.n54), parseInt(this.n55)],
+        weight: weights,
+        iterations: iters,
         date: Date.now()
       }).then(
         this.w51 = null, this.w52 = null, this.w53 = null, this.w54 = null, this.w55 = null,
