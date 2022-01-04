@@ -186,10 +186,10 @@ export default defineComponent({
       const weights = []; const iters = []
       if(!isNaN(this.w71)){weights.push(parseFloat(this.w71))}; if(!isNaN(this.w72)){weights.push(parseFloat(this.w72))}
       if(!isNaN(this.w73)){weights.push(parseFloat(this.w73))}; if(!isNaN(this.w74)){weights.push(parseFloat(this.w74))};
-      if(!isNaN(this.w75)){weights.push(this.w75)}
+      if(!isNaN(this.w75)){weights.push(parseFloat(this.w75))}
       if(!isNaN(this.n71)){iters.push(parseInt(this.n71))}; if(!isNaN(this.n72)){iters.push(parseInt(this.n72))}
       if(!isNaN(this.n73)){iters.push(parseInt(this.n73))}; if(!isNaN(this.n74)){iters.push(parseInt(this.n74))};
-      if(!isNaN(this.n75)){iters.push(this.n75)}
+      if(!isNaN(this.n75)){iters.push(parseInt(this.n75))}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/biceps', 'EZ-Barbell-Curl' + Date.now()), {
           name: 'EZ Barbell Curl',
           weight: weights,
