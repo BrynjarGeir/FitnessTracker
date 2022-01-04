@@ -71,12 +71,12 @@ export default defineComponent({
       const auth = getAuth()
       const userID = auth.currentUser.uid
       weights = []; iters = []
-      if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNan(this.w12)){weights.push(parseFloat(this.w12))}
-      if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNan(this.w14)){weights.push(parseFloat(this.w14))};
-      if(!isNan(this.w15)){weights.push(this.w15)}
-      if(!isNaN(this.n11)){iters.push(parseInt(this.n11))}; if(!isNan(this.n12)){iters.push(parseInt(this.n12))}
-      if(!isNaN(this.n13)){iters.push(parseInt(this.n13))}; if(!isNan(this.n14)){iters.push(parseInt(this.n14))};
-      if(!isNan(this.n15)){iters.push(this.n15)}
+      if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNaN(this.w12)){weights.push(parseFloat(this.w12))}
+      if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNaN(this.w14)){weights.push(parseFloat(this.w14))};
+      if(!isNaN(this.w15)){weights.push(this.w15)}
+      if(!isNaN(this.n11)){iters.push(parseInt(this.n11))}; if(!isNaN(this.n12)){iters.push(parseInt(this.n12))}
+      if(!isNaN(this.n13)){iters.push(parseInt(this.n13))}; if(!isNaN(this.n14)){iters.push(parseInt(this.n14))};
+      if(!isNaN(this.n15)){iters.push(this.n15)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Narrow-Chest-Press' + Date.now()), {
         name: 'Narrow Chest Press',
         weight: weights,
@@ -92,12 +92,12 @@ export default defineComponent({
       const auth = getAuth()
       const userID = auth.currentUser.uid
       weights = []; iters = []
-      if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNan(this.w22)){weights.push(parseFloat(this.w22))}
-      if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNan(this.w24)){weights.push(parseFloat(this.w24))};
-      if(!isNan(this.w25)){weights.push(this.w25)}
-      if(!isNaN(this.n21)){iters.push(parseInt(this.n21))}; if(!isNan(this.n22)){iters.push(parseInt(this.n22))}
-      if(!isNaN(this.n23)){iters.push(parseInt(this.n23))}; if(!isNan(this.n24)){iters.push(parseInt(this.n24))};
-      if(!isNan(this.n25)){iters.push(this.n25)}
+      if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNaN(this.w22)){weights.push(parseFloat(this.w22))}
+      if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNaN(this.w24)){weights.push(parseFloat(this.w24))};
+      if(!isNaN(this.w25)){weights.push(this.w25)}
+      if(!isNaN(this.n21)){iters.push(parseInt(this.n21))}; if(!isNaN(this.n22)){iters.push(parseInt(this.n22))}
+      if(!isNaN(this.n23)){iters.push(parseInt(this.n23))}; if(!isNaN(this.n24)){iters.push(parseInt(this.n24))};
+      if(!isNaN(this.n25)){iters.push(this.n25)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Cable-Rope-Tricep-Pulldown' + Date.now()), {
         name: 'Cable Rope Tricep Pulldown',
         weight: weights,
@@ -113,12 +113,12 @@ export default defineComponent({
       const auth = getAuth()
       const userID = auth.currentUser.uid
       weights = []; iters = []
-      if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNan(this.w32)){weights.push(parseFloat(this.w32))}
-      if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNan(this.w34)){weights.push(parseFloat(this.w34))};
-      if(!isNan(this.w35)){weights.push(this.w35)}
-      if(!isNaN(this.n31)){iters.push(parseInt(this.n31))}; if(!isNan(this.n32)){iters.push(parseInt(this.n32))}
-      if(!isNaN(this.n33)){iters.push(parseInt(this.n33))}; if(!isNan(this.n34)){iters.push(parseInt(this.n34))};
-      if(!isNan(this.n35)){iters.push(this.n35)}
+      if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNaN(this.w32)){weights.push(parseFloat(this.w32))}
+      if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNaN(this.w34)){weights.push(parseFloat(this.w34))};
+      if(!isNaN(this.w35)){weights.push(this.w35)}
+      if(!isNaN(this.n31)){iters.push(parseInt(this.n31))}; if(!isNaN(this.n32)){iters.push(parseInt(this.n32))}
+      if(!isNaN(this.n33)){iters.push(parseInt(this.n33))}; if(!isNaN(this.n34)){iters.push(parseInt(this.n34))};
+      if(!isNaN(this.n35)){iters.push(this.n35)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Lying-Tricep-Extension' + Date.now()), {
         name: 'Lying Tricep Extension',
         weight: weights,
@@ -133,9 +133,9 @@ export default defineComponent({
       const auth = getAuth()
       const userID = auth.currentUser.uid
       iters = []
-      if(!isNaN(this.n41)){iters.push(parseInt(this.n41))}; if(!isNan(this.n42)){iters.push(parseInt(this.n42))}
-      if(!isNaN(this.n43)){iters.push(parseInt(this.n43))}; if(!isNan(this.n44)){iters.push(parseInt(this.n44))};
-      if(!isNan(this.n45)){iters.push(this.n45)}
+      if(!isNaN(this.n41)){iters.push(parseInt(this.n41))}; if(!isNaN(this.n42)){iters.push(parseInt(this.n42))}
+      if(!isNaN(this.n43)){iters.push(parseInt(this.n43))}; if(!isNaN(this.n44)){iters.push(parseInt(this.n44))};
+      if(!isNaN(this.n45)){iters.push(this.n45)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Dips-On-Bench' + Date.now()), {
         name: 'Dips On Bench',
         iterations: iters,
@@ -148,12 +148,12 @@ export default defineComponent({
       const auth = getAuth()
       const userID = auth.currentUser.uid
       weights = []; iters = []
-      if(!isNaN(this.w51)){weights.push(parseFloat(this.w51))}; if(!isNan(this.w52)){weights.push(parseFloat(this.w52))}
-      if(!isNaN(this.w53)){weights.push(parseFloat(this.w53))}; if(!isNan(this.w54)){weights.push(parseFloat(this.w54))};
-      if(!isNan(this.w55)){weights.push(this.w55)}
-      if(!isNaN(this.n51)){iters.push(parseInt(this.n51))}; if(!isNan(this.n52)){iters.push(parseInt(this.n52))}
-      if(!isNaN(this.n53)){iters.push(parseInt(this.n53))}; if(!isNan(this.n54)){iters.push(parseInt(this.n54))};
-      if(!isNan(this.n55)){iters.push(this.n55)}
+      if(!isNaN(this.w51)){weights.push(parseFloat(this.w51))}; if(!isNaN(this.w52)){weights.push(parseFloat(this.w52))}
+      if(!isNaN(this.w53)){weights.push(parseFloat(this.w53))}; if(!isNaN(this.w54)){weights.push(parseFloat(this.w54))};
+      if(!isNaN(this.w55)){weights.push(this.w55)}
+      if(!isNaN(this.n51)){iters.push(parseInt(this.n51))}; if(!isNaN(this.n52)){iters.push(parseInt(this.n52))}
+      if(!isNaN(this.n53)){iters.push(parseInt(this.n53))}; if(!isNaN(this.n54)){iters.push(parseInt(this.n54))};
+      if(!isNaN(this.n55)){iters.push(this.n55)}
       await setDoc(doc(db, 'fitnesstracker/' + userID + '/triceps', 'Standing-Overhead-Cable-Tricep-Extension' + Date.now()), {
         name: 'Standing Overhead Cable Tricep Extension',
         weight: weights,
