@@ -120,7 +120,7 @@ export default defineComponent({
     async ex1() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNaN(this.w12)){weights.push(parseFloat(this.w12))}
       if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNaN(this.w14)){weights.push(parseFloat(this.w14))};
       if(!isNaN(this.w15)){weights.push(this.w15)}
@@ -141,7 +141,7 @@ export default defineComponent({
     async ex2() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNaN(this.w22)){weights.push(parseFloat(this.w22))}
       if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNaN(this.w24)){weights.push(parseFloat(this.w24))};
       if(!isNaN(this.w25)){weights.push(this.w25)}
@@ -162,7 +162,7 @@ export default defineComponent({
     async ex3() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNaN(this.w32)){weights.push(parseFloat(this.w32))}
       if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNaN(this.w34)){weights.push(parseFloat(this.w34))};
       if(!isNaN(this.w35)){weights.push(this.w35)}
@@ -214,7 +214,7 @@ export default defineComponent({
     async ex6() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w61)){weights.push(parseFloat(this.w61))}; if(!isNaN(this.w62)){weights.push(parseFloat(this.w62))}
       if(!isNaN(this.w63)){weights.push(parseFloat(this.w63))}; if(!isNaN(this.w64)){weights.push(parseFloat(this.w64))};
       if(!isNaN(this.w65)){weights.push(this.w65)}
@@ -235,7 +235,7 @@ export default defineComponent({
     async ex7() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w71)){weights.push(parseFloat(this.w71))}; if(!isNaN(this.w72)){weights.push(parseFloat(this.w72))}
       if(!isNaN(this.w73)){weights.push(parseFloat(this.w73))}; if(!isNaN(this.w74)){weights.push(parseFloat(this.w74))};
       if(!isNaN(this.w75)){weights.push(this.w75)}
@@ -255,7 +255,7 @@ export default defineComponent({
     async ex8() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w81)){weights.push(parseFloat(this.w81))}; if(!isNaN(this.w82)){weights.push(parseFloat(this.w82))}
       if(!isNaN(this.w83)){weights.push(parseFloat(this.w83))}; if(!isNaN(this.w84)){weights.push(parseFloat(this.w84))};
       if(!isNaN(this.w85)){weights.push(this.w85)}
@@ -275,7 +275,7 @@ export default defineComponent({
     async ex9() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w91)){weights.push(parseFloat(this.w91))}; if(!isNaN(this.w92)){weights.push(parseFloat(this.w92))}
       if(!isNaN(this.w93)){weights.push(parseFloat(this.w93))}; if(!isNaN(this.w94)){weights.push(parseFloat(this.w94))};
       if(!isNaN(this.w95)){weights.push(this.w95)}
@@ -295,7 +295,7 @@ export default defineComponent({
     async ex10() {
       const auth = getAuth()
       const userID = auth.currentUser.uid 
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w101)){weights.push(parseFloat(this.w101))}; if(!isNaN(this.w102)){weights.push(parseFloat(this.w102))}
       if(!isNaN(this.w103)){weights.push(parseFloat(this.w103))}; if(!isNaN(this.w104)){weights.push(parseFloat(this.w104))};
       if(!isNaN(this.w105)){weights.push(this.w105)}

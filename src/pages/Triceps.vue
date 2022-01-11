@@ -70,7 +70,7 @@ export default defineComponent({
     async ex1() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w11)){weights.push(parseFloat(this.w11))}; if(!isNaN(this.w12)){weights.push(parseFloat(this.w12))}
       if(!isNaN(this.w13)){weights.push(parseFloat(this.w13))}; if(!isNaN(this.w14)){weights.push(parseFloat(this.w14))};
       if(!isNaN(this.w15)){weights.push(this.w15)}
@@ -91,7 +91,7 @@ export default defineComponent({
     async ex2() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w21)){weights.push(parseFloat(this.w21))}; if(!isNaN(this.w22)){weights.push(parseFloat(this.w22))}
       if(!isNaN(this.w23)){weights.push(parseFloat(this.w23))}; if(!isNaN(this.w24)){weights.push(parseFloat(this.w24))};
       if(!isNaN(this.w25)){weights.push(this.w25)}
@@ -112,7 +112,7 @@ export default defineComponent({
     async ex3() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w31)){weights.push(parseFloat(this.w31))}; if(!isNaN(this.w32)){weights.push(parseFloat(this.w32))}
       if(!isNaN(this.w33)){weights.push(parseFloat(this.w33))}; if(!isNaN(this.w34)){weights.push(parseFloat(this.w34))};
       if(!isNaN(this.w35)){weights.push(this.w35)}
@@ -147,7 +147,7 @@ export default defineComponent({
     async ex5() {
       const auth = getAuth()
       const userID = auth.currentUser.uid
-      weights = []; iters = []
+      const weights = []; const iters = []
       if(!isNaN(this.w51)){weights.push(parseFloat(this.w51))}; if(!isNaN(this.w52)){weights.push(parseFloat(this.w52))}
       if(!isNaN(this.w53)){weights.push(parseFloat(this.w53))}; if(!isNaN(this.w54)){weights.push(parseFloat(this.w54))};
       if(!isNaN(this.w55)){weights.push(this.w55)}
